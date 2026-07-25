@@ -1,0 +1,347 @@
+You are an expert certification-exam practice-content author.
+
+Create an ORIGINAL practice-question pack for:
+
+Certification: [CERTIFICATION NAME]
+Exam Code: [EXAM CODE]
+Number of Questions: [NUMBER, e.g. 100]
+Pack Name: [PACK NAME]
+
+The output will be imported directly into the CertifyAI application.
+
+IMPORTANT:
+Return ONLY valid JSON.
+Do not include Markdown.
+Do not use ```json code fences.
+Do not include introductory or concluding text.
+
+==================================================
+1. CONTENT REQUIREMENTS
+==================================================
+
+Create realistic certification-style PRACTICE questions based on the CURRENT publicly available exam objectives and official documentation.
+
+Questions must be independently written.
+
+DO NOT:
+- copy official exam questions
+- reproduce leaked exam questions
+- use certification dumps
+- reconstruct memorized live exam questions
+- claim that questions appeared on the real exam
+
+The goal is to reproduce the STYLE, DIFFICULTY, REASONING DEPTH, TOPIC COVERAGE, and DISTRACTOR QUALITY of the certification exam without reproducing protected exam content.
+
+==================================================
+2. EXAM BLUEPRINT
+==================================================
+
+Before generating questions, internally identify the current official exam domains/objectives for:
+
+[EXAM CODE]
+
+Distribute questions approximately according to the official exam-domain weighting.
+
+Every important exam objective should receive appropriate coverage.
+
+Do not output your planning process.
+
+Only output the final JSON.
+
+==================================================
+3. QUESTION DIFFICULTY
+==================================================
+
+Use approximately:
+
+15% Easy
+45% Medium
+40% Hard
+
+Avoid making most questions simple definition/recall questions.
+
+Medium and Hard questions should frequently use realistic scenarios requiring the learner to determine the BEST service, architecture, security control, pricing model, operational approach, or design decision.
+
+Include questions testing differences between similar technologies.
+
+==================================================
+4. QUESTION QUALITY
+==================================================
+
+Each question must:
+
+- be unique
+- test a meaningful exam objective
+- have exactly 4 options
+- have exactly ONE correct answer
+- contain realistic distractors
+- avoid obvious giveaway wording
+- avoid repeated scenarios
+- avoid repeatedly making the same option position correct
+- use clear professional English
+- avoid unnecessary trick questions
+- avoid ambiguous answers
+
+Do not create duplicates or near-duplicates.
+
+==================================================
+5. CORRECT ANSWER FORMAT
+==================================================
+
+CertifyAI uses ZERO-BASED indexes.
+
+Therefore:
+
+0 = Option A
+1 = Option B
+2 = Option C
+3 = Option D
+
+Example:
+
+"correctAnswer": 2
+
+means Option C is correct.
+
+IMPORTANT:
+
+correctAnswer MUST be an INTEGER.
+
+Correct:
+"correctAnswer": 2
+
+Incorrect:
+"correctAnswer": "C"
+
+Incorrect:
+"correctAnswer": [2]
+
+Incorrect:
+"correctAnswer": "2"
+
+==================================================
+6. EXPLANATION STYLE
+==================================================
+
+Every question must include a concise educational explanation.
+
+Target approximately 60–120 words.
+
+Use this structure:
+
+Correct: [Correct option/service] — explain why it satisfies the requirement.
+
+Why not: briefly explain why the most plausible alternatives do not fit.
+
+Exam Tip: provide one short certification-relevant takeaway.
+
+Keep explanations concise and useful.
+
+Do NOT produce extremely long AI-generated explanations.
+
+==================================================
+7. REQUIRED JSON STRUCTURE
+==================================================
+
+Return exactly this overall structure:
+
+{
+  "id": "[PACK-ID]",
+  "name": "[PACK NAME]",
+  "questions": [
+    {
+      "id": "q001",
+      "domain": "Domain Name",
+      "difficulty": "Medium",
+      "question": "Question text",
+      "options": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct: ... Why not: ... Exam Tip: ..."
+    }
+  ]
+}
+
+==================================================
+8. FIELD RULES
+==================================================
+
+PACK ID:
+
+Use a short lowercase identifier.
+
+Example:
+
+aws-clf-c02-practice
+
+QUESTION IDs:
+
+Use:
+
+q001
+q002
+q003
+...
+
+Every ID must be unique.
+
+DOMAIN:
+
+Use the official/current exam-domain names where practical.
+
+DIFFICULTY:
+
+Only:
+
+"Easy"
+"Medium"
+"Hard"
+
+OPTIONS:
+
+Exactly 4 strings.
+
+CORRECT ANSWER:
+
+Exactly one integer:
+
+0
+1
+2
+or
+3
+
+==================================================
+9. ANSWER DISTRIBUTION
+==================================================
+
+Randomize correct-answer positions.
+
+Across a large pack, keep the distribution reasonably balanced between:
+
+A
+B
+C
+D
+
+Do not create obvious patterns such as:
+
+A
+B
+C
+D
+A
+B
+C
+D
+
+and do not make one option disproportionately correct.
+
+==================================================
+10. SCENARIO QUESTIONS
+==================================================
+
+Include realistic scenarios involving combinations such as:
+
+- architecture decisions
+- security requirements
+- cost optimization
+- availability
+- scalability
+- operational responsibility
+- managed vs self-managed services
+- monitoring
+- governance
+- networking
+- storage
+- databases
+- migration
+- disaster recovery
+- support
+- pricing
+
+Only include topics relevant to the requested certification.
+
+Use keywords commonly encountered in certification scenarios such as:
+
+MOST appropriate
+BEST solution
+MOST cost-effective
+LEAST operational overhead
+MOST secure
+HIGHLY available
+
+But do not overuse the same wording.
+
+==================================================
+11. SERVICE CONFUSION QUESTIONS
+==================================================
+
+Include questions that test commonly confused technologies/services.
+
+For example, when relevant to the certification:
+
+monitoring vs auditing
+object vs block vs file storage
+relational vs NoSQL databases
+authentication vs authorization
+scalability vs elasticity
+high availability vs disaster recovery
+managed vs unmanaged services
+
+Distractors should be technically plausible.
+
+==================================================
+12. UNIQUENESS CHECK
+==================================================
+
+Before producing the final output, internally verify:
+
+- no duplicate questions
+- no near-duplicate questions
+- no duplicate IDs
+- exactly 4 options per question
+- exactly one correct answer
+- correctAnswer is between 0 and 3
+- every question has an explanation
+- every question has a domain
+- every question has a difficulty
+- requested number of questions is present
+- major exam objectives are covered
+- answer positions are reasonably balanced
+
+==================================================
+13. JSON VALIDATION
+==================================================
+
+The final response MUST be syntactically valid JSON.
+
+Requirements:
+
+- double quotes around JSON strings
+- no comments
+- no trailing commas
+- no Markdown
+- no code fences
+- no text before JSON
+- no text after JSON
+
+The file must be directly importable into CertifyAI without manual editing.
+
+==================================================
+FINAL INSTRUCTION
+==================================================
+
+Generate the complete CertifyAI-compatible exam pack now.
+
+Certification: [CERTIFICATION NAME]
+Exam Code: [EXAM CODE]
+Questions: [NUMBER]
+Pack ID: [PACK-ID]
+Pack Name: [PACK NAME]
+
+Return ONLY the final valid JSON.
