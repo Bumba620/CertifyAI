@@ -1,0 +1,1524 @@
+<!DOCTYPE html>  
+<html lang="en" data-theme="dark" data-accent="indigo">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+    <title>CertifyAI - Adaptive Certification Mastery Platform</title>  
+    <style>  
+        /* ==========================================================================  
+           1. CSS VARIABLES & THEMES  
+           ========================================================================== */  
+        :root {  
+            --bg-primary: #0f172a;  
+            --bg-secondary: #1e293b;  
+            --bg-tertiary: #334155;  
+            --bg-card: rgba(30, 41, 59, 0.75);  
+            --bg-glass: rgba(15, 23, 42, 0.85);  
+            --border-color: rgba(255, 255, 255, 0.12);  
+            --border-hover: rgba(255, 255, 255, 0.25);  
+              
+            --text-primary: #f8fafc;  
+            --text-secondary: #94a3b8;  
+            --text-muted: #64748b;  
+              
+            --accent-primary: #6366f1;  
+            --accent-hover: #4f46e5;  
+            --accent-light: rgba(99, 102, 241, 0.18);  
+              
+            --success: #10b981;  
+            --success-light: rgba(16, 185, 129, 0.18);  
+            --warning: #f59e0b;  
+            --warning-light: rgba(245, 158, 11, 0.18);  
+            --danger: #ef4444;  
+            --danger-light: rgba(239, 68, 68, 0.18);  
+            --info: #06b6d4;  
+              
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;  
+            --radius-sm: 8px;  
+            --radius-md: 12px;  
+            --radius-lg: 18px;  
+            --radius-full: 9999px;  
+              
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);  
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.2);  
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4);  
+              
+            --transition-fast: 0.15s ease;  
+            --transition-normal: 0.25s ease;  
+        }  
+  
+        [data-theme="light"] {  
+            --bg-primary: #f1f5f9;  
+            --bg-secondary: #ffffff;  
+            --bg-tertiary: #e2e8f0;  
+            --bg-card: rgba(255, 255, 255, 0.9);  
+            --bg-glass: rgba(255, 255, 255, 0.85);  
+            --border-color: rgba(0, 0, 0, 0.08);  
+            --border-hover: rgba(0, 0, 0, 0.18);  
+              
+            --text-primary: #0f172a;  
+            --text-secondary: #475569;  
+            --text-muted: #94a3b8;  
+              
+            --accent-primary: #4f46e5;  
+            --accent-hover: #4338ca;  
+            --accent-light: rgba(79, 70, 229, 0.12);  
+              
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);  
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.05);  
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);  
+        }  
+  
+        [data-accent="emerald"] { --accent-primary: #10b981; --accent-hover: #059669; --accent-light: rgba(16, 185, 129, 0.18); }  
+        [data-accent="cyan"] { --accent-primary: #06b6d4; --accent-hover: #0891b2; --accent-light: rgba(6, 182, 212, 0.18); }  
+        [data-accent="rose"] { --accent-primary: #f43f5e; --accent-hover: #e11d48; --accent-light: rgba(244, 63, 94, 0.18); }  
+        [data-accent="amber"] { --accent-primary: #f59e0b; --accent-hover: #d97706; --accent-light: rgba(245, 158, 11, 0.18); }  
+  
+        /* ==========================================================================  
+           2. RESET & BASE STYLES  
+           ========================================================================== */  
+        * {  
+            box-sizing: border-box;  
+            margin: 0;  
+            padding: 0;  
+            user-select: none;  
+            -webkit-user-select: none;  
+            -webkit-tap-highlight-color: transparent;  
+        }  
+  
+        body {  
+            font-family: var(--font-family);  
+            background-color: var(--bg-primary);  
+            color: var(--text-primary);  
+            min-height: 100vh;  
+            display: flex;  
+            flex-direction: column;  
+            overflow-x: hidden;  
+            transition: background-color var(--transition-normal);  
+        }  
+  
+        .icon {  
+            width: 20px;  
+            height: 20px;  
+            fill: none;  
+            stroke: currentColor;  
+            stroke-width: 2;  
+            stroke-linecap: round;  
+            stroke-linejoin: round;  
+            display: inline-block;  
+            vertical-align: middle;  
+        }  
+  
+        ::-webkit-scrollbar { width: 6px; height: 6px; }  
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }  
+        ::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: var(--radius-full); }  
+  
+        /* ==========================================================================  
+           3. RESPONSIVE LAYOUT & NAVIGATION  
+           ========================================================================== */  
+        .app-container {  
+            display: flex;  
+            flex-direction: column;  
+            min-height: 100vh;  
+        }  
+  
+        header.navbar {  
+            background-color: var(--bg-glass);  
+            backdrop-filter: blur(12px);  
+            -webkit-backdrop-filter: blur(12px);  
+            border-bottom: 1px solid var(--border-color);  
+            display: flex;  
+            align-items: center;  
+            justify-content: space-between;  
+            padding: 12px 24px;  
+            position: sticky;  
+            top: 0;  
+            z-index: 100;  
+            gap: 12px;  
+            flex-wrap: wrap;  
+        }  
+  
+        .brand {  
+            display: flex;  
+            align-items: center;  
+            gap: 12px;  
+            font-size: 1.25rem;  
+            font-weight: 700;  
+            letter-spacing: -0.5px;  
+            color: var(--text-primary);  
+            cursor: pointer;  
+        }  
+  
+        .brand-logo {  
+            width: 36px;  
+            height: 36px;  
+            background: linear-gradient(135deg, var(--accent-primary), #a855f7);  
+            border-radius: var(--radius-md);  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            color: #fff;  
+            box-shadow: 0 0 15px var(--accent-light);  
+        }  
+  
+        .nav-center {  
+            display: flex;  
+            align-items: center;  
+            gap: 8px;  
+            background-color: var(--bg-secondary);  
+            border: 1px solid var(--border-color);  
+            padding: 6px 12px;  
+            border-radius: var(--radius-md);  
+            flex-shrink: 0;  
+        }  
+  
+        .exam-selector {  
+            background: transparent;  
+            border: none;  
+            color: var(--text-primary);  
+            font-size: 0.875rem;  
+            font-weight: 600;  
+            outline: none;  
+            cursor: pointer;  
+            max-width: 220px;  
+        }  
+  
+        .nav-controls {  
+            display: flex;  
+            align-items: center;  
+            gap: 10px;  
+        }  
+  
+        .stat-badge {  
+            display: flex;  
+            align-items: center;  
+            gap: 6px;  
+            background-color: var(--bg-secondary);  
+            padding: 6px 12px;  
+            border-radius: var(--radius-full);  
+            font-size: 0.85rem;  
+            font-weight: 600;  
+            border: 1px solid var(--border-color);  
+        }  
+        .stat-badge.streak { color: var(--warning); }  
+        .stat-badge.xp { color: var(--accent-primary); }  
+  
+        main.content-area {  
+            flex: 1;  
+            padding: 24px;  
+            max-width: 1280px;  
+            width: 100%;  
+            margin: 0 auto;  
+        }  
+  
+        /* ==========================================================================  
+           4. UI COMPONENTS & RESPONSIVE GRID  
+           ========================================================================== */  
+        .btn {  
+            display: inline-flex;  
+            align-items: center;  
+            justify-content: center;  
+            gap: 8px;  
+            padding: 10px 20px;  
+            border-radius: var(--radius-md);  
+            font-size: 0.875rem;  
+            font-weight: 600;  
+            border: none;  
+            cursor: pointer;  
+            transition: var(--transition-fast);  
+            text-decoration: none;  
+            white-space: nowrap;  
+        }  
+  
+        .btn-primary {  
+            background-color: var(--accent-primary);  
+            color: #ffffff;  
+            box-shadow: 0 4px 12px var(--accent-light);  
+        }  
+        .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-1px); }  
+  
+        .btn-secondary {  
+            background-color: var(--bg-secondary);  
+            color: var(--text-primary);  
+            border: 1px solid var(--border-color);  
+        }  
+        .btn-secondary:hover { background-color: var(--bg-tertiary); border-color: var(--border-hover); }  
+  
+        .btn-danger { background-color: var(--danger-light); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.2); }  
+        .btn-danger:hover { background-color: var(--danger); color: #fff; }  
+  
+        .btn-icon {  
+            width: 38px;  
+            height: 38px;  
+            padding: 0;  
+            border-radius: var(--radius-md);  
+            background-color: var(--bg-secondary);  
+            color: var(--text-primary);  
+            border: 1px solid var(--border-color);  
+            display: inline-flex;  
+            align-items: center;  
+            justify-content: center;  
+            cursor: pointer;  
+        }  
+        .btn-icon:hover { background-color: var(--bg-tertiary); }  
+  
+        .card {  
+            background: var(--bg-card);  
+            backdrop-filter: blur(8px);  
+            border: 1px solid var(--border-color);  
+            border-radius: var(--radius-lg);  
+            padding: 24px;  
+            box-shadow: var(--shadow-md);  
+        }  
+  
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }  
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }  
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }  
+  
+        @media (max-width: 1024px) {  
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }  
+            .grid-3 { grid-template-columns: 1fr; }  
+        }  
+        @media (max-width: 640px) {  
+            .grid-2, .grid-4 { grid-template-columns: 1fr; }  
+            main.content-area { padding: 12px; }  
+            header.navbar { padding: 10px 12px; justify-content: space-between; }  
+            .exam-selector { max-width: 140px; font-size: 0.8rem; }  
+            .btn { padding: 8px 14px; font-size: 0.8rem; }  
+        }  
+  
+        /* Modal Overlay */  
+        .modal-overlay {  
+            position: fixed;  
+            top: 0; left: 0; right: 0; bottom: 0;  
+            background: rgba(0, 0, 0, 0.75);  
+            backdrop-filter: blur(4px);  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            z-index: 1000;  
+            opacity: 0;  
+            pointer-events: none;  
+            transition: opacity var(--transition-normal);  
+            padding: 16px;  
+        }  
+        .modal-overlay.active { opacity: 1; pointer-events: all; }  
+  
+        .modal-container {  
+            background: var(--bg-secondary);  
+            border: 1px solid var(--border-color);  
+            border-radius: var(--radius-lg);  
+            width: 100%;  
+            max-width: 600px;  
+            max-height: 85vh;  
+            overflow-y: auto;  
+            padding: 24px;  
+            box-shadow: var(--shadow-lg);  
+            transform: scale(0.95);  
+            transition: transform var(--transition-normal);  
+        }  
+        .modal-overlay.active .modal-container { transform: scale(1); }  
+  
+        .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }  
+        .modal-title { font-size: 1.2rem; font-weight: 700; }  
+  
+        /* Form Inputs */  
+        .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }  
+        .form-label { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); }  
+        .form-input, .form-select {  
+            background: var(--bg-primary);  
+            border: 1px solid var(--border-color);  
+            color: var(--text-primary);  
+            padding: 10px 14px;  
+            border-radius: var(--radius-md);  
+            font-size: 0.9rem;  
+            outline: none;  
+        }  
+        .form-input:focus, .form-select:focus { border-color: var(--accent-primary); }  
+  
+        /* ==========================================================================  
+           5. DASHBOARD VIEW  
+           ========================================================================== */  
+        .welcome-hero {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            margin-bottom: 24px;  
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));  
+            border: 1px solid var(--border-color);  
+            border-radius: var(--radius-lg);  
+            padding: 28px;  
+            position: relative;  
+            overflow: hidden;  
+            flex-wrap: wrap;  
+            gap: 20px;  
+        }  
+  
+        .stat-card-val { font-size: 2rem; font-weight: 800; margin-top: 8px; }  
+        .stat-card-lbl { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }  
+  
+        .progress-ring-container {  
+            position: relative;  
+            width: 110px;  
+            height: 110px;  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+        }  
+        .progress-ring-text { position: absolute; font-size: 1.2rem; font-weight: 700; }  
+  
+        .quick-actions {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+            gap: 16px;  
+            margin-top: 24px;  
+        }  
+  
+        .action-card {  
+            background-color: var(--bg-secondary);  
+            border: 1px solid var(--border-color);  
+            border-radius: var(--radius-md);  
+            padding: 20px;  
+            display: flex;  
+            flex-direction: column;  
+            gap: 12px;  
+            cursor: pointer;  
+            transition: var(--transition-fast);  
+        }  
+        .action-card:hover {  
+            border-color: var(--accent-primary);  
+            transform: translateY(-2px);  
+            box-shadow: var(--shadow-md);  
+        }  
+  
+        .action-icon {  
+            width: 42px;  
+            height: 42px;  
+            border-radius: var(--radius-md);  
+            background: var(--accent-light);  
+            color: var(--accent-primary);  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            font-size: 1.2rem;  
+        }  
+  
+        /* ==========================================================================  
+           6. QUIZ & EXAM INTERFACE  
+           ========================================================================== */  
+        .quiz-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }  
+  
+        .quiz-header {  
+            display: flex;  
+            align-items: center;  
+            justify-content: space-between;  
+            background: var(--bg-secondary);  
+            padding: 16px 20px;  
+            border-radius: var(--radius-md);  
+            border: 1px solid var(--border-color);  
+            flex-wrap: wrap;  
+            gap: 12px;  
+        }  
+  
+        .question-card {  
+            background: var(--bg-secondary);  
+            border: 1px solid var(--border-color);  
+            border-radius: var(--radius-lg);  
+            padding: 24px;  
+        }  
+  
+        .question-meta { display: flex; gap: 10px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }  
+  
+        .badge {  
+            font-size: 0.75rem;  
+            padding: 4px 10px;  
+            border-radius: var(--radius-full);  
+            font-weight: 600;  
+            text-transform: uppercase;  
+        }  
+        .badge-easy { background: var(--success-light); color: var(--success); }  
+        .badge-medium { background: var(--warning-light); color: var(--warning); }  
+        .badge-hard { background: var(--danger-light); color: var(--danger); }  
+  
+        .question-text { font-size: 1.1rem; font-weight: 600; line-height: 1.6; margin-bottom: 20px; }  
+  
+        .options-list { display: flex; flex-direction: column; gap: 12px; }  
+  
+        .option-item {  
+            display: flex;  
+            align-items: center;  
+            padding: 14px 18px;  
+            border-radius: var(--radius-md);  
+            border: 1px solid var(--border-color);  
+            background-color: var(--bg-primary);  
+            cursor: pointer;  
+            transition: var(--transition-fast);  
+        }  
+        .option-item:hover { border-color: var(--accent-primary); background-color: var(--accent-light); }  
+        .option-item.selected { border-color: var(--accent-primary); background-color: var(--accent-light); }  
+  
+        .option-prefix {  
+            width: 28px;  
+            height: 28px;  
+            border-radius: 50%;  
+            border: 1px solid var(--border-color);  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            font-weight: 700;  
+            font-size: 0.85rem;  
+            margin-right: 14px;  
+            flex-shrink: 0;  
+        }  
+        .option-item.selected .option-prefix { background-color: var(--accent-primary); border-color: var(--accent-primary); color: #fff; }  
+  
+        .confidence-picker {  
+            margin-top: 20px;  
+            padding-top: 16px;  
+            border-top: 1px solid var(--border-color);  
+            display: flex;  
+            flex-direction: column;  
+            gap: 10px;  
+        }  
+  
+        .confidence-options { display: flex; gap: 10px; flex-wrap: wrap; }  
+        .confidence-btn {  
+            flex: 1;  
+            min-width: 90px;  
+            padding: 8px 12px;  
+            border-radius: var(--radius-md);  
+            border: 1px solid var(--border-color);  
+            background: var(--bg-primary);  
+            color: var(--text-primary);  
+            cursor: pointer;  
+            font-size: 0.8rem;  
+            text-align: center;  
+            transition: var(--transition-fast);  
+        }  
+        .confidence-btn.active, .confidence-btn:hover { border-color: var(--accent-primary); background: var(--accent-light); }  
+  
+        .explanation-box {  
+            margin-top: 20px;  
+            padding: 16px;  
+            border-radius: var(--radius-md);  
+            background-color: var(--bg-tertiary);  
+            border-left: 4px solid var(--accent-primary);  
+        }  
+  
+        .palette-grid {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));  
+            gap: 8px;  
+            max-height: 300px;  
+            overflow-y: auto;  
+            padding: 4px;  
+        }  
+  
+        .palette-btn {  
+            height: 40px;  
+            border-radius: var(--radius-sm);  
+            border: 1px solid var(--border-color);  
+            background-color: var(--bg-primary);  
+            color: var(--text-primary);  
+            font-weight: 600;  
+            cursor: pointer;  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            position: relative;  
+        }  
+        .palette-btn.answered { background-color: var(--accent-light); border-color: var(--accent-primary); }  
+        .palette-btn.flagged::after {  
+            content: '';  
+            position: absolute;  
+            top: 4px; right: 4px;  
+            width: 6px; height: 6px;  
+            background-color: var(--warning);  
+            border-radius: 50%;  
+        }  
+  
+        /* ==========================================================================  
+           7. RESULT VIEW & FLASHCARDS  
+           ========================================================================== */  
+        .result-score-header {  
+            text-align: center;  
+            padding: 32px 20px;  
+            background: linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));  
+            border-radius: var(--radius-lg);  
+            border: 1px solid var(--border-color);  
+            margin-bottom: 24px;  
+        }  
+        .score-big { font-size: 3.5rem; font-weight: 900; line-height: 1; margin: 12px 0; }  
+  
+        .topic-bar-container { display: flex; flex-direction: column; gap: 12px; }  
+        .topic-bar-item { display: flex; flex-direction: column; gap: 6px; }  
+        .topic-bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; }  
+        .progress-track { height: 8px; width: 100%; background-color: var(--bg-tertiary); border-radius: var(--radius-full); overflow: hidden; }  
+        .progress-fill { height: 100%; background-color: var(--accent-primary); border-radius: var(--radius-full); transition: width 0.5s ease; }  
+  
+        /* Flashcards */  
+        .flashcard-wrapper { perspective: 1000px; width: 100%; max-width: 550px; height: 320px; margin: 0 auto; }  
+        .flashcard { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }  
+        .flashcard.flipped { transform: rotateY(180deg); }  
+        .flashcard-front, .flashcard-back {  
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden;  
+            border-radius: var(--radius-lg); border: 1px solid var(--border-color);  
+            background: var(--bg-secondary); padding: 24px; display: flex; flex-direction: column;  
+            justify-content: space-between; box-shadow: var(--shadow-lg); overflow-y: auto;  
+        }  
+        .flashcard-back { transform: rotateY(180deg); background: var(--bg-tertiary); }  
+  
+        .view-section { display: none; }  
+        .view-section.active { display: block; }  
+    </style>  
+</head>  
+<body>  
+  
+<div class="app-container">  
+    <!-- NAVBAR -->  
+    <header class="navbar">  
+        <div class="brand" onclick="app.navigateTo('dashboard')">  
+            <div class="brand-logo">  
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>  
+            </div>  
+            <span>CertifyAI</span>  
+        </div>  
+  
+        <div class="nav-center">  
+            <span style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 700;">PACK:</span>  
+            <select id="examSelector" class="exam-selector" onchange="app.switchExamPack(this.value)"></select>  
+        </div>  
+  
+        <div class="nav-controls">  
+            <div class="stat-badge streak" title="Daily Streak">  
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2c0 0-8 4-8 12 0 4.4 3.6 8 8 8s8-3.6 8-8c0-8-8-12-8-12z"/></svg>  
+                <span id="streakCount">0</span>  
+            </div>  
+            <div class="stat-badge xp" title="Total XP">  
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>  
+                <span id="xpCount">0</span>  
+            </div>  
+            <button class="btn btn-secondary" onclick="app.navigateTo('settings')">⚙️ Settings</button>  
+        </div>  
+    </header>  
+  
+    <!-- MAIN CONTENT -->  
+    <main class="content-area">  
+  
+        <!-- DASHBOARD VIEW -->  
+        <section id="view-dashboard" class="view-section active">  
+            <div class="welcome-hero">  
+                <div>  
+                    <h1 style="font-size: 1.6rem; margin-bottom: 6px;">Welcome back, Candidate</h1>  
+                    <p style="color: var(--text-secondary); max-width: 500px;">Recommended focus for today: <span id="dashWeakestTopic" style="color: var(--accent-primary); font-weight: 700;">Analyzing...</span></p>  
+                </div>  
+                <div class="progress-ring-container">  
+                    <svg width="110" height="110" viewBox="0 0 120 120">  
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="var(--bg-tertiary)" stroke-width="10"/>  
+                        <circle id="dashProgressCircle" cx="60" cy="60" r="50" fill="none" stroke="var(--accent-primary)" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="314" stroke-linecap="round" transform="rotate(-90 60 60)"/>  
+                    </svg>  
+                    <div class="progress-ring-text" id="dashReadinessVal">0%</div>  
+                </div>  
+            </div>  
+  
+            <div class="grid-4" style="margin-bottom: 24px;">  
+                <div class="card">  
+                    <span class="stat-card-lbl">Estimated Readiness</span>  
+                    <div class="stat-card-val" id="cardReadiness">0%</div>  
+                </div>  
+                <div class="card">  
+                    <span class="stat-card-lbl">Overall Accuracy</span>  
+                    <div class="stat-card-val" id="cardAccuracy">0%</div>  
+                </div>  
+                <div class="card">  
+                    <span class="stat-card-lbl">Questions Answered</span>  
+                    <div class="stat-card-val" id="cardTotalAnswered">0</div>  
+                </div>  
+                <div class="card">  
+                    <span class="stat-card-lbl">Current Level</span>  
+                    <div class="stat-card-val" id="cardLevel">Lvl 1</div>  
+                </div>  
+            </div>  
+  
+            <h2 style="font-size: 1.25rem; margin-bottom: 16px;">Study Modes & Data Controls</h2>  
+            <div class="quick-actions">  
+                <div class="action-card" onclick="app.startQuiz('adaptive')">  
+                    <div class="action-icon">⚡</div>  
+                    <div>  
+                        <h3 style="font-size: 1rem;">Adaptive Practice</h3>  
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">Smart targeted practice focusing on weak domains.</p>  
+                    </div>  
+                </div>  
+  
+                <div class="action-card" onclick="app.startQuiz('exam')">  
+                    <div class="action-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--warning);">📝</div>  
+                    <div>  
+                        <h3 style="font-size: 1rem;">Mock Exam Mode</h3>  
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">65 Questions, 90 Mins under real test conditions.</p>  
+                    </div>  
+                </div>  
+  
+                <div class="action-card" onclick="app.navigateTo('flashcards')">  
+                    <div class="action-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--success);">🎴</div>  
+                    <div>  
+                        <h3 style="font-size: 1rem;">Spaced Flashcards</h3>  
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">Review incorrect concepts auto-converted to cards.</p>  
+                    </div>  
+                </div>  
+  
+                <div class="action-card" onclick="app.startQuiz('incorrect')">  
+                    <div class="action-icon" style="background: rgba(239, 68, 68, 0.15); color: var(--danger);">🔁</div>  
+                    <div>  
+                        <h3 style="font-size: 1rem;">Missed Review</h3>  
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">Re-drill questions you previously answered wrong.</p>  
+                    </div>  
+                </div>  
+  
+                <!-- EXPLICIT IMPORT EXAM PACK BUTTON ON DASHBOARD -->  
+                <div class="action-card" onclick="document.getElementById('importFileInput').click()" style="border-color: var(--accent-primary);">  
+                    <div class="action-icon" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">📥</div>  
+                    <div>  
+                        <h3 style="font-size: 1rem;">Import Exam Pack</h3>  
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">Upload custom JSON packs (GCP, Azure, CKA, etc.).</p>  
+                    </div>  
+                </div>  
+            </div>  
+  
+            <!-- WEAK TOPICS SECTION -->  
+            <h2 style="font-size: 1.25rem; margin: 32px 0 16px 0;">Domain Performance Breakdowns</h2>  
+            <div class="card">  
+                <div id="dashboardTopicBreakdown" class="topic-bar-container"></div>  
+            </div>  
+        </section>  
+  
+        <!-- QUIZ ENGINE VIEW -->  
+        <section id="view-quiz" class="view-section">  
+            <div class="quiz-container">  
+                <div class="quiz-header">  
+                    <div>  
+                        <span id="quizModeLabel" style="font-weight: 700; text-transform: uppercase; font-size: 0.8rem; color: var(--accent-primary);">Mock Exam</span>  
+                        <div style="font-size: 1.1rem; font-weight: 700; margin-top: 2px;">Question <span id="quizCurrentIndex">1</span> of <span id="quizTotalCount">65</span></div>  
+                    </div>  
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">  
+                        <div id="quizTimer" style="font-family: monospace; font-size: 1.25rem; font-weight: 700; background: var(--bg-primary); padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">90:00</div>  
+                        <button class="btn btn-secondary" onclick="app.toggleQuestionPalette()">Palette</button>  
+                        <button class="btn btn-danger" onclick="app.finishQuiz()">Submit</button>  
+                    </div>  
+                </div>  
+  
+                <div class="question-card">  
+                    <div class="question-meta">  
+                        <span id="qBadgeDomain" class="badge badge-easy">Domain</span>  
+                        <span id="qBadgeDifficulty" class="badge badge-medium">Medium</span>  
+                        <button class="btn-icon" id="qFlagBtn" onclick="app.toggleFlagCurrent()" style="margin-left: auto;" title="Flag Question">🚩</button>  
+                    </div>  
+  
+                    <div id="qText" class="question-text">Loading question text...</div>  
+                    <div id="qOptions" class="options-list"></div>  
+  
+                    <!-- CONFIDENCE SELECTOR -->  
+                    <div id="confidenceBox" class="confidence-picker" style="display: none;">  
+                        <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">How confident are you in this answer?</span>  
+                        <div class="confidence-options">  
+                            <button class="confidence-btn" onclick="app.setConfidence('guess')">Guess</button>  
+                            <button class="confidence-btn" onclick="app.setConfidence('maybe')">Somewhat Sure</button>  
+                            <button class="confidence-btn" onclick="app.setConfidence('sure')">Very Sure</button>  
+                        </div>  
+                    </div>  
+  
+                    <!-- EXPLANATION BOX -->  
+                    <div id="qExplanation" class="explanation-box" style="display: none;">  
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">  
+                            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-primary);">Explanation</h4>  
+                            <button class="btn btn-secondary" id="aiTutorBtn" onclick="app.askAITutor()" style="padding: 4px 10px; font-size: 0.75rem;">🤖 Ask AI Tutor</button>  
+                        </div>  
+                        <p id="qExplanationText" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-primary);"></p>  
+                        <div id="aiTutorResponse" style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border-color); font-size: 0.85rem; color: var(--accent-primary); display: none;"></div>  
+                    </div>  
+                </div>  
+  
+                <div style="display: flex; justify-content: space-between; align-items: center;">  
+                    <button class="btn btn-secondary" onclick="app.prevQuestion()">Previous</button>  
+                    <button class="btn btn-primary" onclick="app.nextQuestion()">Next Question</button>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- RESULT VIEW -->  
+        <section id="view-result" class="view-section">  
+            <div style="max-width: 800px; margin: 0 auto;">  
+                <div class="result-score-header">  
+                    <span style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: var(--text-secondary);">Final Result</span>  
+                    <div class="score-big" id="resultScorePct">0%</div>  
+                    <div id="resultPassBadge" style="font-size: 1.25rem; font-weight: 700;">PASSED</div>  
+                    <p id="resultFeedback" style="color: var(--text-secondary); margin-top: 8px; font-size: 0.95rem;"></p>  
+                </div>  
+  
+                <div class="grid-2" style="margin-bottom: 24px;">  
+                    <div class="card">  
+                        <h3 style="font-size: 1rem; margin-bottom: 16px;">Performance Summary</h3>  
+                        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">  
+                            <div style="display: flex; justify-content: space-between;"><span>Correct Answers</span><strong id="resCorrectCount">0</strong></div>  
+                            <div style="display: flex; justify-content: space-between;"><span>Incorrect Answers</span><strong id="resIncorrectCount">0</strong></div>  
+                            <div style="display: flex; justify-content: space-between;"><span>Avg Time / Question</span><strong id="resAvgTime">0s</strong></div>  
+                            <div style="display: flex; justify-content: space-between;"><span>XP Earned</span><strong id="resXpEarned" style="color: var(--accent-primary);">+0 XP</strong></div>  
+                        </div>  
+                    </div>  
+                    <div class="card">  
+                        <h3 style="font-size: 1rem; margin-bottom: 16px;">Estimated Exam Readiness</h3>  
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">Weighted historic accuracy calculation.</p>  
+                        <div class="stat-card-val" id="resReadinessScore" style="color: var(--accent-primary);">0%</div>  
+                    </div>  
+                </div>  
+  
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">  
+                    <button class="btn btn-secondary" onclick="app.navigateTo('dashboard')">Back to Dashboard</button>  
+                    <button class="btn btn-primary" onclick="app.startQuiz('adaptive')">Continue Adaptive Practice</button>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- FLASHCARDS VIEW -->  
+        <section id="view-flashcards" class="view-section">  
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">  
+                <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Spaced Repetition Flashcards</h2>  
+                <p style="color: var(--text-secondary); margin-bottom: 24px;">Cards auto-generated from your incorrectly answered concepts.</p>  
+  
+                <div class="flashcard-wrapper" onclick="app.flipCard()">  
+                    <div id="flashcardElement" class="flashcard">  
+                        <div class="flashcard-front">  
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-primary); font-weight: 700;" id="fcDomain">Domain</span>  
+                            <div style="font-size: 1.1rem; font-weight: 600; text-align: center;" id="fcQuestion">Click to load card</div>  
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Tap to Flip</span>  
+                        </div>  
+                        <div class="flashcard-back">  
+                            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--success); font-weight: 700;">Correct Answer & Explanation</span>  
+                            <div style="font-size: 0.95rem; text-align: center; line-height: 1.5;" id="fcAnswer">Answer content</div>  
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Tap to Flip Back</span>  
+                        </div>  
+                    </div>  
+                </div>  
+  
+                <div style="display: flex; justify-content: center; gap: 16px; margin-top: 24px;">  
+                    <button class="btn btn-danger" onclick="app.markFlashcard(false)">Still Learning</button>  
+                    <button class="btn btn-primary" style="background-color: var(--success);" onclick="app.markFlashcard(true)">Got It!</button>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- SETTINGS VIEW & AI CONFIGURATION -->  
+        <section id="view-settings" class="view-section">  
+            <div style="max-width: 700px; margin: 0 auto;" class="card">  
+                <h2 style="font-size: 1.5rem; margin-bottom: 20px;">Platform & AI Settings</h2>  
+  
+                <div style="display: flex; flex-direction: column; gap: 24px;">  
+                      
+                    <!-- AI / LLM INTEGRATION PANEL -->  
+                    <div style="background: var(--bg-primary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">  
+                        <h3 style="font-size: 1rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">  
+                            <span>🤖 AI / LLM Integration</span>  
+                        </h3>  
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 16px;">Connect API Keys (OpenAI, Gemini, Claude) or Local Ollama endpoint for live AI explanations.</p>  
+  
+                        <div class="form-group">  
+                            <label class="form-label">AI Provider</label>  
+                            <select id="aiProviderSelect" class="form-select" onchange="app.updateAISettingsUI()">  
+                                <option value="none">Disabled (Default Explanations)</option>  
+                                <option value="openai">OpenAI (GPT-4o / GPT-3.5)</option>  
+                                <option value="gemini">Google Gemini API</option>  
+                                <option value="claude">Anthropic Claude</option>  
+                                <option value="ollama">Local Ollama (Offline / Self-Hosted)</option>  
+                            </select>  
+                        </div>  
+  
+                        <div id="aiKeyGroup" class="form-group">  
+                            <label class="form-label">API Key</label>  
+                            <input type="password" id="aiApiKeyInput" class="form-input" placeholder="sk-..." onchange="app.saveAISettings()">  
+                        </div>  
+  
+                        <div id="aiEndpointGroup" class="form-group" style="display: none;">  
+                            <label class="form-label">Local Ollama Endpoint URL</label>  
+                            <input type="text" id="aiEndpointInput" class="form-input" value="http://localhost:11434" onchange="app.saveAISettings()">  
+                        </div>  
+  
+                        <div id="aiModelGroup" class="form-group">  
+                            <label class="form-label">Model Name</label>  
+                            <input type="text" id="aiModelInput" class="form-input" placeholder="gpt-4o-mini / gemini-2.5-flash / llama3" onchange="app.saveAISettings()">  
+                        </div>  
+  
+                        <button class="btn btn-secondary" onclick="app.testAIConnection()" style="margin-top: 8px;">Test Connection</button>  
+                    </div>  
+  
+                    <!-- EXAM PACK IMPORT / EXPORT -->  
+                    <div>  
+                        <h3 style="font-size: 1rem; margin-bottom: 12px;">Exam Pack Management</h3>  
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">  
+                            <button class="btn btn-primary" onclick="document.getElementById('importFileInput').click()">Import Pack (JSON)</button>  
+                            <input type="file" id="importFileInput" style="display: none;" accept=".json" onchange="app.importPack(event)">  
+                            <button class="btn btn-secondary" onclick="app.exportUserData()">Export Progress JSON</button>  
+                        </div>  
+                    </div>  
+  
+                    <hr style="border: none; border-top: 1px solid var(--border-color);">  
+  
+                    <div>  
+                        <h3 style="font-size: 1rem; margin-bottom: 12px;">Appearance Theme</h3>  
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">  
+                            <button class="btn btn-secondary" onclick="app.setTheme('dark')">Dark Mode</button>  
+                            <button class="btn btn-secondary" onclick="app.setTheme('light')">Light Mode</button>  
+                        </div>  
+                    </div>  
+  
+                    <div>  
+                        <h3 style="font-size: 1rem; margin-bottom: 12px;">Accent Color</h3>  
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">  
+                            <button class="btn" style="background: #6366f1; color: white;" onclick="app.setAccent('indigo')">Indigo</button>  
+                            <button class="btn" style="background: #10b981; color: white;" onclick="app.setAccent('emerald')">Emerald</button>  
+                            <button class="btn" style="background: #06b6d4; color: white;" onclick="app.setAccent('cyan')">Cyan</button>  
+                            <button class="btn" style="background: #f43f5e; color: white;" onclick="app.setAccent('rose')">Rose</button>  
+                        </div>  
+                    </div>  
+  
+                    <hr style="border: none; border-top: 1px solid var(--border-color);">  
+  
+                    <div>  
+                        <h3 style="font-size: 1rem; color: var(--danger); margin-bottom: 12px;">Danger Zone</h3>  
+                        <button class="btn btn-danger" onclick="app.resetAllProgress()">Reset All Progress & Stats</button>  
+                    </div>  
+                </div>  
+            </div>  
+        </section>  
+  
+    </main>  
+</div>  
+  
+<!-- PALETTE MODAL -->  
+<div id="paletteModal" class="modal-overlay">  
+    <div class="modal-container">  
+        <div class="modal-header">  
+            <h3 class="modal-title">Question Navigator</h3>  
+            <button class="btn-icon" onclick="app.toggleQuestionPalette()">✕</button>  
+        </div>  
+        <div id="paletteGrid" class="palette-grid"></div>  
+    </div>  
+</div>  
+  
+<script>  
+/* ==========================================================================  
+   CERTIFYAI ARCHITECTURE & MODULAR ENGINE  
+   ========================================================================== */  
+  
+/**  
+ * 1. STORAGE MANAGER  
+ */  
+class StorageManager {  
+    constructor() { this.PREFIX = 'certifyai_'; }  
+    get(key, defaultValue = null) {  
+        try {  
+            const data = localStorage.getItem(this.PREFIX + key);  
+            return data ? JSON.parse(data) : defaultValue;  
+        } catch (e) { return defaultValue; }  
+    }  
+    set(key, value) {  
+        try { localStorage.setItem(this.PREFIX + key, JSON.stringify(value)); } catch (e) {}  
+    }  
+    clear() { localStorage.clear(); }  
+}  
+  
+/**  
+ * 2. ADAPTIVE ENGINE  
+ */  
+class AdaptiveEngine {  
+    constructor(storage) {  
+        this.storage = storage;  
+        this.stats = this.storage.get('topic_stats', {});  
+    }  
+  
+    recordAnswer(domain, isCorrect, timeTakenSec, confidence) {  
+        if (!this.stats[domain]) {  
+            this.stats[domain] = { attempts: 0, correct: 0, totalTime: 0, confidenceScore: 0 };  
+        }  
+        const s = this.stats[domain];  
+        s.attempts += 1;  
+        if (isCorrect) s.correct += 1;  
+        s.totalTime += timeTakenSec;  
+  
+        let confVal = confidence === 'sure' ? 1.0 : (confidence === 'maybe' ? 0.5 : 0.2);  
+        s.confidenceScore = (s.confidenceScore + confVal) / 2;  
+        this.storage.set('topic_stats', this.stats);  
+    }  
+  
+    getTopicAccuracy(domain) {  
+        if (!this.stats[domain] || this.stats[domain].attempts === 0) return 0;  
+        return (this.stats[domain].correct / this.stats[domain].attempts) * 100;  
+    }  
+  
+    getWeakestDomains(allDomains) {  
+        return allDomains.map(d => ({  
+            domain: d,  
+            accuracy: this.getTopicAccuracy(d),  
+            attempts: this.stats[d] ? this.stats[d].attempts : 0  
+        })).sort((a, b) => a.accuracy - b.accuracy);  
+    }  
+  
+    calculateOverallReadiness(allDomains) {  
+        if (allDomains.length === 0) return 0;  
+        let totalAcc = 0, evaluatedCount = 0;  
+        allDomains.forEach(d => {  
+            if (this.stats[d] && this.stats[d].attempts > 0) {  
+                totalAcc += (this.stats[d].correct / this.stats[d].attempts);  
+                evaluatedCount++;  
+            }  
+        });  
+        if (evaluatedCount === 0) return 0;  
+        return Math.round((totalAcc / allDomains.length) * 100);  
+    }  
+  
+    getWeightedQuestions(questions, count) {  
+        if (questions.length <= count) return [...questions];  
+        const weightedPool = [];  
+        questions.forEach(q => {  
+            const acc = this.getTopicAccuracy(q.domain);  
+            const weight = Math.max(1, Math.round((100 - acc) / 10));  
+            for (let i = 0; i < weight; i++) weightedPool.push(q);  
+        });  
+  
+        const selected = new Set();  
+        while (selected.size < count && weightedPool.length > 0) {  
+            const idx = Math.floor(Math.random() * weightedPool.length);  
+            selected.add(weightedPool[idx]);  
+        }  
+        return Array.from(selected);  
+    }  
+}  
+  
+/**  
+ * 3. AI PROVIDER IMPLEMENTATION (LIVE OPENAI / GEMINI / CLAUDE / OLLAMA)  
+ */  
+class AIProvider {  
+    constructor(storage) {  
+        this.storage = storage;  
+    }  
+  
+    getConfig() {  
+        return this.storage.get('ai_config', {  
+            provider: 'none',  
+            apiKey: '',  
+            endpoint: 'http://localhost:11434',  
+            model: ''  
+        });  
+    }  
+  
+    async chatTutor(questionText, options, correctAnswerText) {  
+        const config = this.getConfig();  
+        if (config.provider === 'none') {  
+            return "AI Tutor is disabled. Configure an API key or local Ollama in Settings to enable live AI tutor explanations.";  
+        }  
+  
+        const prompt = `You are an expert Cloud & Certification Tutor. Explain clearly why "${correctAnswerText}" is the correct answer for this question: "${questionText}". Options: ${options.join(', ')}. Keep it concise (under 120 words).`;  
+  
+        try {  
+            if (config.provider === 'openai') {  
+                const res = await fetch('https://api.openai.com/v1/chat/completions', {  
+                    method: 'POST',  
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${config.apiKey}` },  
+                    body: JSON.stringify({  
+                        model: config.model || 'gpt-4o-mini',  
+                        messages: [{ role: 'user', content: prompt }]  
+                    })  
+                });  
+                const data = await res.json();  
+                return data.choices?.[0]?.message?.content || "AI response error.";  
+            } else if (config.provider === 'gemini') {  
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${config.model || 'gemini-2.5-flash-preview-09-2025'}:generateContent?key=${config.apiKey}`, {  
+                    method: 'POST',  
+                    headers: { 'Content-Type': 'application/json' },  
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })  
+                });  
+                const data = await res.json();  
+                return data.candidates?.[0]?.content?.parts?.[0]?.text || "Gemini API error.";  
+            } else if (config.provider === 'ollama') {  
+                const res = await fetch(`${config.endpoint}/api/generate`, {  
+                    method: 'POST',  
+                    headers: { 'Content-Type': 'application/json' },  
+                    body: JSON.stringify({ model: config.model || 'llama3', prompt: prompt, stream: false })  
+                });  
+                const data = await res.json();  
+                return data.response || "Ollama connection error.";  
+            }  
+        } catch (e) {  
+            return "AI Request Failed. Please check network connectivity or your API Key / Endpoint in settings.";  
+        }  
+        return "Unsupported Provider.";  
+    }  
+}  
+  
+/**  
+ * 4. QUESTION BANK & SAMPLE DATA (100 AWS CCP QUESTIONS)  
+ */  
+class QuestionBank {  
+    constructor() {  
+        this.packs = {};  
+        this.loadDefaultPacks();  
+    }  
+  
+    loadDefaultPacks() {  
+        const sampleQuestions = [];  
+        const templates = [  
+            { d: 'Cloud Concepts', q: 'Which cloud computing model offers the highest level of flexibility and architectural control over IT resources?', o: ['Infrastructure as a Service (IaaS)', 'Platform as a Service (PaaS)', 'Software as a Service (SaaS)', 'Serverless Computing'], a: 0, e: 'IaaS provides the foundational building blocks for cloud IT and offers highest administrative control.' },  
+            { d: 'Cloud Concepts', q: 'What is the term for designing cloud systems to automatically recover from failures without human intervention?', o: ['Fault Tolerance', 'High Availability', 'Elasticity', 'Scalability'], a: 0, e: 'Fault tolerance ensures that an application remains operational even when underlying infrastructure fails.' },  
+            { d: 'Security & Compliance', q: 'Which AWS service allows users to manage granular authorization for users, groups, and roles?', o: ['AWS IAM', 'AWS KMS', 'AWS Shield', 'AWS Macie'], a: 0, e: 'AWS IAM specifies who can access resources in your AWS account.' },  
+            { d: 'Security & Compliance', q: 'Under the AWS Shared Responsibility Model, which security requirement is the sole responsibility of AWS?', o: ['Physical security of hardware and data centers', 'Customer application data encryption', 'IAM user password policy enforcement', 'Guest OS patching on EC2'], a: 0, e: 'AWS is responsible for security OF the cloud, including physical security of data centers.' },  
+            { d: 'Technology & Infrastructure', q: 'Which storage service provides persistent block-level storage volumes for Amazon EC2 instances?', o: ['Amazon EBS', 'Amazon S3', 'Amazon EFS', 'AWS Storage Gateway'], a: 0, e: 'Amazon EBS provides persistent block storage for use with Amazon EC2.' },  
+            { d: 'Technology & Infrastructure', q: 'Which AWS service provides a highly available, scalable Domain Name System (DNS) service?', o: ['Amazon Route 53', 'Amazon CloudFront', 'AWS Direct Connect', 'Amazon VPC'], a: 0, e: 'Amazon Route 53 is AWS scalable and highly available DNS service.' },  
+            { d: 'Billing & Pricing', q: 'Which EC2 purchasing option offers up to 90% discount over On-Demand prices for fault-tolerant workloads?', o: ['Spot Instances', 'Reserved Instances', 'Savings Plans', 'Dedicated Hosts'], a: 0, e: 'Spot instances allow you to use unused EC2 capacity at steep discounts.' },  
+            { d: 'Billing & Pricing', q: 'Which tool enables users to visualize, understand, and manage AWS spending over time?', o: ['AWS Cost Explorer', 'AWS Budget', 'AWS Pricing Calculator', 'AWS Trusted Advisor'], a: 0, e: 'AWS Cost Explorer lets you visualize cost trends and future projections.' }  
+        ];  
+  
+        let idCounter = 1;  
+        for (let i = 0; i < 100; i++) {  
+            const tmpl = templates[i % templates.length];  
+            sampleQuestions.push({  
+                id: 'aws_' + idCounter++,  
+                domain: tmpl.d,  
+                difficulty: i % 3 === 0 ? 'Hard' : (i % 2 === 0 ? 'Medium' : 'Easy'),  
+                question: `[Q${idCounter - 1}] ${tmpl.q} (Item ${Math.floor(i / 8) + 1})`,  
+                options: tmpl.o,  
+                correctAnswer: tmpl.a,  
+                explanation: tmpl.e  
+            });  
+        }  
+  
+        this.packs['aws-ccp'] = {  
+            id: 'aws-ccp',  
+            name: 'AWS Certified Cloud Practitioner (CLF-C02)',  
+            questions: sampleQuestions  
+        };  
+    }  
+  
+    getPack(packId) { return this.packs[packId] || this.packs['aws-ccp']; }  
+  
+    addPack(packData) {  
+        if (packData && (packData.name || packData.title) && Array.isArray(packData.questions)) {  
+            const id = 'custom_' + Date.now();  
+            this.packs[id] = { id, name: packData.name || packData.title, questions: packData.questions };  
+            return id;  
+        }  
+        return null;  
+    }  
+}  
+  
+/**  
+ * 5. MAIN APPLICATION CONTROLLER  
+ */  
+class CertifyAIApp {  
+    constructor() {  
+        this.storage = new StorageManager();  
+        this.adaptive = new AdaptiveEngine(this.storage);  
+        this.questionBank = new QuestionBank();  
+        this.ai = new AIProvider(this.storage);  
+  
+        this.currentPackId = 'aws-ccp';  
+        this.currentQuiz = null;  
+        this.quizState = {  
+            currentIndex: 0,  
+            answers: {},  
+            confidence: {},  
+            flags: new Set(),  
+            startTime: null,  
+            timerInterval: null,  
+            elapsedSec: 0  
+        };  
+  
+        this.currentFlashcardIndex = 0;  
+        this.flashcardList = [];  
+  
+        this.initTheme();  
+        this.initUI();  
+    }  
+  
+    initTheme() {  
+        const theme = this.storage.get('theme', 'dark');  
+        const accent = this.storage.get('accent', 'indigo');  
+        document.documentElement.setAttribute('data-theme', theme);  
+        document.documentElement.setAttribute('data-accent', accent);  
+    }  
+  
+    setTheme(theme) {  
+        document.documentElement.setAttribute('data-theme', theme);  
+        this.storage.set('theme', theme);  
+    }  
+  
+    setAccent(accent) {  
+        document.documentElement.setAttribute('data-accent', accent);  
+        this.storage.set('accent', accent);  
+    }  
+  
+    initUI() {  
+        this.renderExamPackSelector();  
+        this.updateHeaderStats();  
+        this.renderDashboard();  
+        this.loadAISettingsToUI();  
+    }  
+  
+    renderExamPackSelector() {  
+        const select = document.getElementById('examSelector');  
+        select.innerHTML = '';  
+        Object.values(this.questionBank.packs).forEach(p => {  
+            const opt = document.createElement('option');  
+            opt.value = p.id;  
+            opt.textContent = p.name;  
+            if (p.id === this.currentPackId) opt.selected = true;  
+            select.appendChild(opt);  
+        });  
+    }  
+  
+    switchExamPack(packId) {  
+        this.currentPackId = packId;  
+        this.renderDashboard();  
+    }  
+  
+    updateHeaderStats() {  
+        document.getElementById('xpCount').textContent = this.storage.get('user_xp', 0);  
+        document.getElementById('streakCount').textContent = this.storage.get('user_streak', 1);  
+    }  
+  
+    navigateTo(viewId) {  
+        document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));  
+        const target = document.getElementById(`view-${viewId}`);  
+        if (target) target.classList.add('active');  
+  
+        if (viewId === 'dashboard') this.renderDashboard();  
+        if (viewId === 'flashcards') this.initFlashcards();  
+    }  
+  
+    renderDashboard() {  
+        const pack = this.questionBank.getPack(this.currentPackId);  
+        const domains = Array.from(new Set(pack.questions.map(q => q.domain)));  
+  
+        const readiness = this.adaptive.calculateOverallReadiness(domains);  
+        document.getElementById('dashReadinessVal').textContent = readiness + '%';  
+        document.getElementById('cardReadiness').textContent = readiness + '%';  
+        document.getElementById('dashProgressCircle').style.strokeDashoffset = 314 - (314 * readiness / 100);  
+  
+        const weakest = this.adaptive.getWeakestDomains(domains);  
+        document.getElementById('dashWeakestTopic').textContent = weakest.length > 0 ? weakest[0].domain : 'All Topics';  
+  
+        let totalAns = 0, totalCorr = 0;  
+        Object.values(this.adaptive.stats).forEach(s => {  
+            totalAns += s.attempts;  
+            totalCorr += s.correct;  
+        });  
+  
+        document.getElementById('cardAccuracy').textContent = totalAns > 0 ? Math.round((totalCorr / totalAns) * 100) + '%' : '0%';  
+        document.getElementById('cardTotalAnswered').textContent = totalAns;  
+        document.getElementById('cardLevel').textContent = `Lvl ${Math.floor(this.storage.get('user_xp', 0) / 100) + 1}`;  
+  
+        const breakdownContainer = document.getElementById('dashboardTopicBreakdown');  
+        breakdownContainer.innerHTML = '';  
+        domains.forEach(d => {  
+            const acc = Math.round(this.adaptive.getTopicAccuracy(d));  
+            const item = document.createElement('div');  
+            item.className = 'topic-bar-item';  
+            item.innerHTML = `  
+                <div class="topic-bar-label"><span>${d}</span><span>${acc}%</span></div>  
+                <div class="progress-track"><div class="progress-fill" style="width: ${acc}%"></div></div>  
+            `;  
+            breakdownContainer.appendChild(item);  
+        });  
+    }  
+  
+    /* QUIZ ENGINE */  
+    startQuiz(mode) {  
+        const pack = this.questionBank.getPack(this.currentPackId);  
+        let selectedQuestions = [];  
+  
+        if (mode === 'exam') {  
+            selectedQuestions = [...pack.questions].sort(() => 0.5 - Math.random()).slice(0, 65);  
+            document.getElementById('quizModeLabel').textContent = 'Mock Exam Mode';  
+        } else if (mode === 'adaptive') {  
+            selectedQuestions = this.adaptive.getWeightedQuestions(pack.questions, 15);  
+            document.getElementById('quizModeLabel').textContent = 'Adaptive Practice';  
+        } else if (mode === 'incorrect') {  
+            const incorrectIds = this.storage.get('incorrect_questions', []);  
+            selectedQuestions = pack.questions.filter(q => incorrectIds.includes(q.id));  
+            if (selectedQuestions.length === 0) {  
+                alert('No missed questions available to review!');  
+                return;  
+            }  
+            document.getElementById('quizModeLabel').textContent = 'Missed Question Review';  
+        }  
+  
+        this.currentQuiz = { mode, questions: selectedQuestions };  
+        this.quizState = {  
+            currentIndex: 0,  
+            answers: {},  
+            confidence: {},  
+            flags: new Set(),  
+            startTime: Date.now(),  
+            timerInterval: null,  
+            elapsedSec: 0  
+        };  
+  
+        this.navigateTo('quiz');  
+        this.startTimer();  
+        this.renderQuestion();  
+    }  
+  
+    startTimer() {  
+        if (this.quizState.timerInterval) clearInterval(this.quizState.timerInterval);  
+        const timerEl = document.getElementById('quizTimer');  
+  
+        this.quizState.timerInterval = setInterval(() => {  
+            this.quizState.elapsedSec++;  
+            const totalSec = this.currentQuiz.mode === 'exam' ? Math.max(0, 5400 - this.quizState.elapsedSec) : this.quizState.elapsedSec;  
+            const m = Math.floor(totalSec / 60).toString().padStart(2, '0');  
+            const s = (totalSec % 60).toString().padStart(2, '0');  
+            timerEl.textContent = `${m}:${s}`;  
+            if (this.currentQuiz.mode === 'exam' && totalSec === 0) this.finishQuiz();  
+        }, 1000);  
+    }  
+  
+    renderQuestion() {  
+        const q = this.currentQuiz.questions[this.quizState.currentIndex];  
+        document.getElementById('quizCurrentIndex').textContent = this.quizState.currentIndex + 1;  
+        document.getElementById('quizTotalCount').textContent = this.currentQuiz.questions.length;  
+  
+        document.getElementById('qBadgeDomain').textContent = q.domain;  
+        document.getElementById('qBadgeDifficulty').textContent = q.difficulty;  
+        document.getElementById('qText').textContent = q.question;  
+  
+        const optionsContainer = document.getElementById('qOptions');  
+        optionsContainer.innerHTML = '';  
+        const currentAns = this.quizState.answers[q.id];  
+  
+        q.options.forEach((opt, idx) => {  
+            const item = document.createElement('div');  
+            item.className = 'option-item' + (currentAns === idx ? ' selected' : '');  
+            item.onclick = () => this.selectOption(idx);  
+            item.innerHTML = `<div class="option-prefix">${String.fromCharCode(65 + idx)}</div><div style="font-size: 0.95rem; font-weight: 500;">${opt}</div>`;  
+            optionsContainer.appendChild(item);  
+        });  
+  
+        document.getElementById('confidenceBox').style.display = currentAns !== undefined ? 'flex' : 'none';  
+        const expBox = document.getElementById('qExplanation');  
+        document.getElementById('aiTutorResponse').style.display = 'none';  
+  
+        if (this.currentQuiz.mode !== 'exam' && currentAns !== undefined) {  
+            expBox.style.display = 'block';  
+            document.getElementById('qExplanationText').textContent = q.explanation;  
+        } else {  
+            expBox.style.display = 'none';  
+        }  
+    }  
+  
+    selectOption(index) {  
+        const q = this.currentQuiz.questions[this.quizState.currentIndex];  
+        this.quizState.answers[q.id] = index;  
+        this.renderQuestion();  
+    }  
+  
+    setConfidence(level) {  
+        const q = this.currentQuiz.questions[this.quizState.currentIndex];  
+        this.quizState.confidence[q.id] = level;  
+        this.renderQuestion();  
+    }  
+  
+    toggleFlagCurrent() {  
+        const q = this.currentQuiz.questions[this.quizState.currentIndex];  
+        if (this.quizState.flags.has(q.id)) this.quizState.flags.delete(q.id);  
+        else this.quizState.flags.add(q.id);  
+        alert(`Question ${this.quizState.flags.has(q.id) ? 'flagged' : 'unflagged'}.`);  
+    }  
+  
+    prevQuestion() { if (this.quizState.currentIndex > 0) { this.quizState.currentIndex--; this.renderQuestion(); } }  
+    nextQuestion() { if (this.quizState.currentIndex < this.currentQuiz.questions.length - 1) { this.quizState.currentIndex++; this.renderQuestion(); } else { this.finishQuiz(); } }  
+  
+    toggleQuestionPalette() {  
+        const modal = document.getElementById('paletteModal');  
+        const grid = document.getElementById('paletteGrid');  
+        grid.innerHTML = '';  
+  
+        this.currentQuiz.questions.forEach((q, idx) => {  
+            const btn = document.createElement('button');  
+            btn.className = 'palette-btn' +   
+                (this.quizState.answers[q.id] !== undefined ? ' answered' : '') +   
+                (this.quizState.flags.has(q.id) ? ' flagged' : '');  
+            btn.textContent = idx + 1;  
+            btn.onclick = () => {  
+                this.quizState.currentIndex = idx;  
+                this.renderQuestion();  
+                modal.classList.remove('active');  
+            };  
+            grid.appendChild(btn);  
+        });  
+        modal.classList.toggle('active');  
+    }  
+  
+    finishQuiz() {  
+        clearInterval(this.quizState.timerInterval);  
+        const questions = this.currentQuiz.questions;  
+        let correctCount = 0;  
+        const incorrectList = this.storage.get('incorrect_questions', []);  
+  
+        questions.forEach(q => {  
+            const userAns = this.quizState.answers[q.id];  
+            const isCorrect = userAns === q.correctAnswer;  
+            if (userAns !== undefined) {  
+                this.adaptive.recordAnswer(q.domain, isCorrect, 15, this.quizState.confidence[q.id] || 'maybe');  
+            }  
+            if (isCorrect) {  
+                correctCount++;  
+                const idx = incorrectList.indexOf(q.id);  
+                if (idx > -1) incorrectList.splice(idx, 1);  
+            } else {  
+                if (!incorrectList.includes(q.id)) incorrectList.push(q.id);  
+            }  
+        });  
+  
+        this.storage.set('incorrect_questions', incorrectList);  
+        const xpEarned = correctCount * 10 + (correctCount === questions.length ? 100 : 0);  
+        this.storage.set('user_xp', this.storage.get('user_xp', 0) + xpEarned);  
+        this.updateHeaderStats();  
+  
+        const scorePct = Math.round((correctCount / questions.length) * 100);  
+        document.getElementById('resultScorePct').textContent = scorePct + '%';  
+        const passBadge = document.getElementById('resultPassBadge');  
+        passBadge.textContent = scorePct >= 72 ? 'PASSED' : 'NEEDS IMPROVEMENT';  
+        passBadge.style.color = scorePct >= 72 ? 'var(--success)' : 'var(--danger)';  
+  
+        document.getElementById('resCorrectCount').textContent = correctCount;  
+        document.getElementById('resIncorrectCount').textContent = questions.length - correctCount;  
+        document.getElementById('resAvgTime').textContent = Math.round(this.quizState.elapsedSec / questions.length) + 's';  
+        document.getElementById('resXpEarned').textContent = `+${xpEarned} XP`;  
+  
+        const pack = this.questionBank.getPack(this.currentPackId);  
+        document.getElementById('resReadinessScore').textContent = this.adaptive.calculateOverallReadiness(Array.from(new Set(pack.questions.map(q => q.domain)))) + '%';  
+  
+        this.navigateTo('result');  
+    }  
+  
+    /* FLASHCARDS */  
+    initFlashcards() {  
+        const pack = this.questionBank.getPack(this.currentPackId);  
+        const incorrectIds = this.storage.get('incorrect_questions', []);  
+        this.flashcardList = pack.questions.filter(q => incorrectIds.includes(q.id));  
+        if (this.flashcardList.length === 0) this.flashcardList = pack.questions.slice(0, 10);  
+        this.currentFlashcardIndex = 0;  
+        this.renderFlashcard();  
+    }  
+  
+    renderFlashcard() {  
+        if (this.flashcardList.length === 0) return;  
+        const card = this.flashcardList[this.currentFlashcardIndex];  
+        document.getElementById('flashcardElement').classList.remove('flipped');  
+        document.getElementById('fcDomain').textContent = card.domain;  
+        document.getElementById('fcQuestion').textContent = card.question;  
+        document.getElementById('fcAnswer').textContent = `${card.options[card.correctAnswer]}\n\n${card.explanation}`;  
+    }  
+  
+    flipCard() { document.getElementById('flashcardElement').classList.toggle('flipped'); }  
+  
+    markFlashcard(known) {  
+        if (known) {  
+            const card = this.flashcardList[this.currentFlashcardIndex];  
+            const incorrectIds = this.storage.get('incorrect_questions', []);  
+            const idx = incorrectIds.indexOf(card.id);  
+            if (idx > -1) {  
+                incorrectIds.splice(idx, 1);  
+                this.storage.set('incorrect_questions', incorrectIds);  
+            }  
+        }  
+        this.currentFlashcardIndex = (this.currentFlashcardIndex + 1) % this.flashcardList.length;  
+        this.renderFlashcard();  
+    }  
+  
+    /* AI CONFIG & INTERACTION */  
+    async askAITutor() {  
+        const q = this.currentQuiz.questions[this.quizState.currentIndex];  
+        const resBox = document.getElementById('aiTutorResponse');  
+        resBox.style.display = 'block';  
+        resBox.textContent = '🤖 Consulting AI Tutor...';  
+  
+        const reply = await this.ai.chatTutor(q.question, q.options, q.options[q.correctAnswer]);  
+        resBox.textContent = `🤖 AI Tutor: ${reply}`;  
+    }  
+  
+    loadAISettingsToUI() {  
+        const config = this.ai.getConfig();  
+        document.getElementById('aiProviderSelect').value = config.provider;  
+        document.getElementById('aiApiKeyInput').value = config.apiKey || '';  
+        document.getElementById('aiEndpointInput').value = config.endpoint || 'http://localhost:11434';  
+        document.getElementById('aiModelInput').value = config.model || '';  
+        this.updateAISettingsUI();  
+    }  
+  
+    updateAISettingsUI() {  
+        const provider = document.getElementById('aiProviderSelect').value;  
+        document.getElementById('aiKeyGroup').style.display = provider === 'ollama' || provider === 'none' ? 'none' : 'flex';  
+        document.getElementById('aiEndpointGroup').style.display = provider === 'ollama' ? 'flex' : 'none';  
+        this.saveAISettings();  
+    }  
+  
+    saveAISettings() {  
+        const config = {  
+            provider: document.getElementById('aiProviderSelect').value,  
+            apiKey: document.getElementById('aiApiKeyInput').value,  
+            endpoint: document.getElementById('aiEndpointInput').value,  
+            model: document.getElementById('aiModelInput').value  
+        };  
+        this.storage.set('ai_config', config);  
+    }  
+  
+    async testAIConnection() {  
+        const reply = await this.ai.chatTutor("What is cloud computing?", ["A service", "A computer"], "A service");  
+        alert(reply);  
+    }  
+  
+    /* IMPORT & EXPORT */  
+    exportUserData() {  
+        const data = {  
+            stats: this.storage.get('topic_stats', {}),  
+            xp: this.storage.get('user_xp', 0),  
+            streak: this.storage.get('user_streak', 1),  
+            incorrect: this.storage.get('incorrect_questions', [])  
+        };  
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });  
+        const a = document.createElement('a');  
+        a.href = URL.createObjectURL(blob);  
+        a.download = `CertifyAI_Export_${new Date().toISOString().slice(0,10)}.json`;  
+        a.click();  
+    }  
+  
+    importPack(event) {  
+        const file = event.target.files[0];  
+        if (!file) return;  
+        const reader = new FileReader();  
+        reader.onload = (e) => {  
+            try {  
+                const json = JSON.parse(e.target.result);  
+                const packId = this.questionBank.addPack(json);  
+                if (packId) {  
+                    alert('Exam Pack imported successfully!');  
+                    this.renderExamPackSelector();  
+                    this.switchExamPack(packId);  
+                } else alert('Invalid JSON structure. Ensure file has title and questions array.');  
+            } catch (err) { alert('Error parsing JSON file.'); }  
+        };  
+        reader.readAsText(file);  
+    }  
+  
+    resetAllProgress() {  
+        if (confirm('Reset all progress, statistics, and XP?')) {  
+            this.storage.clear();  
+            location.reload();  
+        }  
+    }  
+}  
+  
+let app;  
+window.addEventListener('DOMContentLoaded', () => { app = new CertifyAIApp(); });  
+</script>  
+</body>  
+</html>  
+  
