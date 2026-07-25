@@ -1,0 +1,288 @@
+{
+  "id": "aws-clf-c02-pack-01",
+  "name": "AWS Certified Cloud Practitioner (CLF-C02) - Practice Pack 01",
+  "title": "AWS CLF-C02 Practice Pack 01",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "clf02_001",
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "A company wants to launch an application without purchasing hardware upfront and wants to increase or decrease resources as demand changes. Which AWS Cloud benefit BEST addresses these requirements?",
+      "options": [
+        "Economies of scale and elasticity",
+        "Dedicated hardware and fixed capacity",
+        "Capital expenditure and manual scaling",
+        "Long-term procurement and forecasting"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS provides economies of scale and elasticity. Customers can avoid large upfront hardware purchases and dynamically adjust resources as demand changes."
+    },
+    {
+      "id": "clf02_002",
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A retail application experiences unpredictable traffic spikes during promotional events. Which AWS Cloud characteristic allows resources to automatically expand during spikes and shrink afterward?",
+      "options": [
+        "Durability",
+        "Elasticity",
+        "Governance",
+        "Fault isolation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Elasticity is the ability to dynamically add or remove resources in response to changing demand."
+    },
+    {
+      "id": "clf02_003",
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "A company needs to grant an application running on Amazon EC2 temporary permissions to access an S3 bucket. Which solution follows AWS security best practices?",
+      "options": [
+        "Store root user credentials on the instance",
+        "Create an IAM user and hard-code its access keys",
+        "Attach an IAM role to the EC2 instance",
+        "Make the S3 bucket public"
+      ],
+      "correctAnswer": 2,
+      "explanation": "An IAM role provides temporary credentials to EC2 workloads and avoids storing long-term access keys on the instance."
+    },
+    {
+      "id": "clf02_004",
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A security team wants to identify potentially malicious activity such as unusual API calls and compromised EC2 credentials. Which AWS service is designed for this purpose?",
+      "options": [
+        "AWS CloudTrail",
+        "Amazon GuardDuty",
+        "Amazon Inspector",
+        "AWS Artifact"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amazon GuardDuty is a threat detection service. CloudTrail records API activity, while Inspector focuses on vulnerability management."
+    },
+    {
+      "id": "clf02_005",
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A company needs automated vulnerability management for its Amazon EC2 instances and container images in Amazon ECR. Which service should it use?",
+      "options": [
+        "Amazon GuardDuty",
+        "Amazon Macie",
+        "Amazon Inspector",
+        "AWS Shield"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Amazon Inspector continuously scans supported workloads such as EC2 instances and ECR container images for software vulnerabilities and unintended network exposure."
+    },
+    {
+      "id": "clf02_006",
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service records actions taken by users, roles, and AWS services through API calls for governance and auditing?",
+      "options": [
+        "Amazon CloudWatch",
+        "AWS CloudTrail",
+        "AWS Config",
+        "Amazon GuardDuty"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS CloudTrail records API activity and account events, helping with auditing, governance, compliance, and troubleshooting."
+    },
+    {
+      "id": "clf02_007",
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A company stores sensitive documents in Amazon S3 and wants to automatically discover and classify personally identifiable information in those objects. Which service should it use?",
+      "options": [
+        "Amazon Macie",
+        "Amazon Inspector",
+        "AWS WAF",
+        "AWS Shield Advanced"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Amazon Macie uses machine learning and pattern matching to discover and help protect sensitive data stored in Amazon S3."
+    },
+    {
+      "id": "clf02_008",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "A company needs a managed relational database compatible with MySQL and wants AWS to handle backups, patching, and routine database administration. Which service is MOST appropriate?",
+      "options": [
+        "Amazon DynamoDB",
+        "Amazon RDS for MySQL",
+        "Amazon Redshift",
+        "Amazon S3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amazon RDS is a managed relational database service. RDS for MySQL provides MySQL compatibility while AWS handles common administrative tasks."
+    },
+    {
+      "id": "clf02_009",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company needs a highly scalable NoSQL key-value database for an application with single-digit millisecond performance requirements. Which service should it choose?",
+      "options": [
+        "Amazon Aurora",
+        "Amazon RDS",
+        "Amazon DynamoDB",
+        "Amazon Redshift"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Amazon DynamoDB is a serverless NoSQL key-value and document database designed for high scalability and low-latency performance."
+    },
+    {
+      "id": "clf02_010",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "A company wants to run code in response to events without provisioning or managing servers. Which AWS service provides this capability?",
+      "options": [
+        "Amazon EC2",
+        "AWS Lambda",
+        "Amazon Lightsail",
+        "AWS Outposts"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS Lambda is a serverless compute service that runs code in response to events without requiring customers to provision or manage servers."
+    },
+    {
+      "id": "clf02_011",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company wants users around the world to download static website content with lower latency by caching copies near users. Which service should it use?",
+      "options": [
+        "Amazon Route 53",
+        "Amazon CloudFront",
+        "AWS Direct Connect",
+        "Amazon VPC"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amazon CloudFront is AWS's content delivery network. It caches content at edge locations closer to users to reduce latency."
+    },
+    {
+      "id": "clf02_012",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides object storage and is commonly used for backups, static website assets, data lakes, and archival workflows?",
+      "options": [
+        "Amazon EBS",
+        "Amazon S3",
+        "Amazon EFS",
+        "Amazon EC2 Instance Store"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amazon S3 is scalable object storage used for backups, static assets, data lakes, and archival workflows."
+    },
+    {
+      "id": "clf02_013",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "An application requires a shared, managed file system that multiple Linux EC2 instances can mount concurrently. Which service is MOST appropriate?",
+      "options": [
+        "Amazon EBS",
+        "Amazon EFS",
+        "Amazon S3 Glacier Flexible Retrieval",
+        "EC2 Instance Store"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amazon EFS provides managed elastic file storage that multiple Linux EC2 instances can mount concurrently."
+    },
+    {
+      "id": "clf02_014",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company needs private dedicated network connectivity from its on-premises data center to AWS and wants more consistent network performance than an internet-based connection. Which service should it use?",
+      "options": [
+        "AWS Direct Connect",
+        "Amazon CloudFront",
+        "AWS Transit Gateway only",
+        "Internet Gateway"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS Direct Connect provides dedicated private connectivity between a customer's environment and AWS."
+    },
+    {
+      "id": "clf02_015",
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides DNS registration, DNS routing, and health checking capabilities?",
+      "options": [
+        "Amazon Route 53",
+        "Elastic Load Balancing",
+        "AWS Global Accelerator",
+        "Amazon CloudFront"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Amazon Route 53 is a highly available and scalable DNS service supporting domain registration, DNS routing, and health checking."
+    },
+    {
+      "id": "clf02_016",
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Hard",
+      "question": "A fault-tolerant batch-processing workload can tolerate interruptions and has flexible start and end times. Which Amazon EC2 purchasing option is generally the MOST cost-effective?",
+      "options": [
+        "On-Demand Instances",
+        "Dedicated Hosts",
+        "Spot Instances",
+        "Standard Reserved Instances"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Spot Instances use spare EC2 capacity at substantial discounts and suit flexible, fault-tolerant workloads that can handle interruption."
+    },
+    {
+      "id": "clf02_017",
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "A finance team wants to visualize historical AWS costs and usage and analyze spending trends. Which service should it use?",
+      "options": [
+        "AWS Cost Explorer",
+        "AWS CloudTrail",
+        "Amazon Inspector",
+        "AWS Artifact"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS Cost Explorer provides tools to visualize, understand, and analyze AWS costs and usage over time."
+    },
+    {
+      "id": "clf02_018",
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "A company wants an alert when its AWS spending exceeds a predefined monthly threshold. Which service is MOST appropriate?",
+      "options": [
+        "AWS Budgets",
+        "AWS Pricing Calculator",
+        "AWS Organizations",
+        "Amazon CloudWatch Logs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS Budgets lets customers define cost or usage budgets and receive alerts when actual or forecasted values cross configured thresholds."
+    },
+    {
+      "id": "clf02_019",
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Hard",
+      "question": "An organization has multiple AWS accounts and wants to centrally manage them while receiving a combined bill. Which AWS service provides these capabilities?",
+      "options": [
+        "AWS Organizations",
+        "AWS IAM Identity Center only",
+        "AWS Control Tower only",
+        "AWS Service Catalog"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS Organizations helps centrally manage multiple AWS accounts and supports consolidated billing."
+    },
+    {
+      "id": "clf02_020",
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company deploys an application across multiple Availability Zones so that it can continue operating if infrastructure in one location fails. Which cloud design principle does this MOST directly improve?",
+      "options": [
+        "High availability",
+        "Vertical scaling",
+        "Capital expenditure",
+        "Data classification"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Deploying workloads across multiple Availability Zones reduces dependency on a single location and improves availability and resilience."
+    }
+  ]
+}

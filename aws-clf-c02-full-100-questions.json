@@ -1,0 +1,1416 @@
+{
+  "id": "aws-clf-c02-full-pack-100-v1",
+  "name": "AWS Certified Cloud Practitioner (CLF-C02) - Full Practice Pack 100",
+  "title": "AWS CLF-C02 Full Practice Pack - 100 Questions",
+  "version": "1.0",
+  "schema": "CertifyAI correctAnswer zero-based integer",
+  "description": "100 unique original CLF-C02-style questions aligned approximately to the official domain weighting.",
+  "domainDistribution": {
+    "Cloud Concepts": 24,
+    "Security & Compliance": 30,
+    "Cloud Technology & Services": 34,
+    "Billing, Pricing & Support": 12
+  },
+  "questions": [
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "A startup wants to avoid purchasing servers upfront and instead pay only for resources it consumes. Which AWS Cloud benefit does this illustrate?",
+      "options": [
+        "Increase capital expenditure",
+        "Trade fixed expense for variable expense",
+        "Eliminate all operational costs",
+        "Use dedicated hardware by default"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS lets customers replace large upfront capital investments with variable, consumption-based spending.",
+      "id": "clf02_full_001"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "An online retailer automatically adds compute capacity during a flash sale and removes it afterward. Which cloud concept is demonstrated?",
+      "options": [
+        "Consolidated billing",
+        "Elasticity",
+        "Data sovereignty",
+        "Durability"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Elasticity means dynamically adding or removing resources as demand changes.",
+      "id": "clf02_full_002"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company wants its application to remain available even if a single AWS data center has an outage. Which approach BEST supports this goal?",
+      "options": [
+        "Place all resources in one subnet",
+        "Deploy resources across multiple Availability Zones",
+        "Use one larger EC2 instance",
+        "Purchase a Dedicated Host"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Using multiple Availability Zones reduces dependency on a single physical location and improves availability.",
+      "id": "clf02_full_003"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which AWS Cloud advantage allows a company to deploy an application in another geographic area within minutes rather than building a new data center?",
+      "options": [
+        "Vertical scaling",
+        "Physical isolation",
+        "Global reach",
+        "Reserved capacity"
+      ],
+      "correctAnswer": 2,
+      "explanation": "AWS Regions allow organizations to deploy workloads globally without constructing their own facilities.",
+      "id": "clf02_full_004"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Easy",
+      "question": "Which term describes the ability of a system to increase its capacity to accommodate growth?",
+      "options": [
+        "Encryption",
+        "Metering",
+        "Governance",
+        "Scalability"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Scalability is the ability to increase or decrease system capacity to meet workload requirements.",
+      "id": "clf02_full_005"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company designs an application so that failure of one component does not make the entire application unavailable. Which design principle is being applied?",
+      "options": [
+        "Prefer manual processes",
+        "Use maximum instance size",
+        "Design for failure",
+        "Maintain fixed capacity"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Cloud architectures should anticipate failures and use redundancy and automated recovery.",
+      "id": "clf02_full_006"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which AWS Well-Architected Framework pillar focuses on avoiding unnecessary costs and selecting resources based on economic requirements?",
+      "options": [
+        "Performance Efficiency",
+        "Reliability",
+        "Security",
+        "Cost Optimization"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The Cost Optimization pillar focuses on delivering business value at the lowest appropriate cost.",
+      "id": "clf02_full_007"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which AWS Well-Architected pillar focuses on the ability of a workload to perform its intended function correctly and consistently when expected?",
+      "options": [
+        "Reliability",
+        "Cost Optimization",
+        "Sustainability",
+        "Operational Excellence"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reliability covers recovery from disruptions, resource acquisition, and consistent workload operation.",
+      "id": "clf02_full_008"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A team wants to improve procedures, learn from operational events, and automate operational changes. Which Well-Architected pillar is MOST relevant?",
+      "options": [
+        "Sustainability",
+        "Security",
+        "Reliability",
+        "Operational Excellence"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Operational Excellence focuses on running and monitoring systems and continuously improving processes and procedures.",
+      "id": "clf02_full_009"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which Well-Architected pillar focuses on using computing resources efficiently as requirements and technologies evolve?",
+      "options": [
+        "Security",
+        "Performance Efficiency",
+        "Cost Optimization",
+        "Reliability"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Performance Efficiency is about efficient use of computing resources and adapting to changing demand and technology.",
+      "id": "clf02_full_010"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which Well-Architected pillar focuses on protecting information, systems, and assets while delivering business value?",
+      "options": [
+        "Security",
+        "Sustainability",
+        "Reliability",
+        "Operational Excellence"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The Security pillar focuses on protecting data, systems, and assets through risk assessment and mitigation.",
+      "id": "clf02_full_011"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which Well-Architected pillar focuses on minimizing the environmental impacts of running cloud workloads?",
+      "options": [
+        "Performance Efficiency",
+        "Operational Excellence",
+        "Sustainability",
+        "Reliability"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Sustainability pillar focuses on minimizing environmental impact by improving resource efficiency.",
+      "id": "clf02_full_012"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company wants a structured framework for assessing cloud readiness and creating a transformation roadmap. Which AWS resource is MOST appropriate?",
+      "options": [
+        "AWS Shield",
+        "AWS Cloud Adoption Framework (AWS CAF)",
+        "AWS Cost Explorer",
+        "AWS Artifact"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS CAF provides guidance for cloud readiness, transformation, governance, people, platform, security, and operations.",
+      "id": "clf02_full_013"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which migration strategy involves moving an application to AWS with minimal changes to its architecture?",
+      "options": [
+        "Retire",
+        "Repurchase",
+        "Rehost",
+        "Refactor"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Rehosting, often called lift-and-shift, moves applications with minimal architectural change.",
+      "id": "clf02_full_014"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company replaces its self-managed CRM application with a cloud-based SaaS product. Which migration strategy is this?",
+      "options": [
+        "Relocate",
+        "Repurchase",
+        "Retain",
+        "Rehost"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Repurchase means moving to a different product, commonly a SaaS solution.",
+      "id": "clf02_full_015"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "A company decides that an old application is no longer needed and will not migrate it to AWS. Which migration strategy applies?",
+      "options": [
+        "Refactor",
+        "Rehost",
+        "Replatform",
+        "Retire"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Retire means decommissioning applications that are no longer required.",
+      "id": "clf02_full_016"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company modifies an application to use managed AWS services and cloud-native capabilities to gain greater scalability. Which migration strategy is this?",
+      "options": [
+        "Retain",
+        "Rehost",
+        "Relocate",
+        "Refactor"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Refactoring changes the application architecture to take fuller advantage of cloud-native capabilities.",
+      "id": "clf02_full_017"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "What is an economic benefit of AWS economies of scale?",
+      "options": [
+        "AWS can achieve lower variable costs because usage is aggregated across many customers",
+        "AWS eliminates the need to monitor costs",
+        "All services have identical pricing worldwide",
+        "Every customer receives free unlimited compute"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Large-scale aggregated usage enables AWS to achieve economies that can translate into lower variable costs.",
+      "id": "clf02_full_018"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company frequently overprovisions its on-premises servers to handle rare peak loads. Which AWS benefit can MOST directly reduce this inefficiency?",
+      "options": [
+        "Long procurement cycles",
+        "Fixed hardware ownership",
+        "Elastic capacity",
+        "Dedicated Hosts"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Elastic capacity lets organizations align resources more closely with actual demand.",
+      "id": "clf02_full_019"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which statement BEST describes high availability?",
+      "options": [
+        "A workload can only run in one Region",
+        "A system always uses the largest server available",
+        "A system is designed to remain accessible despite component failures",
+        "A workload has zero cost"
+      ],
+      "correctAnswer": 2,
+      "explanation": "High availability uses redundancy and resilient design to minimize downtime.",
+      "id": "clf02_full_020"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "Which concept describes a system's ability to continue functioning even when some components fail?",
+      "options": [
+        "Data classification",
+        "Resource tagging",
+        "Capital expenditure",
+        "Fault tolerance"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Fault tolerance enables continued operation despite component failures.",
+      "id": "clf02_full_021"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "A business wants developers to experiment quickly without waiting weeks for hardware procurement. Which AWS benefit is MOST relevant?",
+      "options": [
+        "Require capacity forecasting years ahead",
+        "Increase speed and agility",
+        "Increase fixed costs",
+        "Centralize all workloads in one data center"
+      ],
+      "correctAnswer": 1,
+      "explanation": "On-demand provisioning allows teams to experiment and deploy much faster.",
+      "id": "clf02_full_022"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Medium",
+      "question": "Which cloud economics practice helps reduce waste by matching resource size to actual workload requirements?",
+      "options": [
+        "Manual hardware procurement",
+        "Overprovisioning",
+        "Rightsizing",
+        "Dedicated tenancy for every workload"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Rightsizing aligns resource types and sizes with workload needs to avoid unnecessary spend.",
+      "id": "clf02_full_023"
+    },
+    {
+      "domain": "Cloud Concepts",
+      "difficulty": "Hard",
+      "question": "A company wants to measure business value from cloud adoption, including agility, cost savings, resilience, and staff productivity. What broad concept is it evaluating?",
+      "options": [
+        "Cloud value proposition",
+        "Security group statefulness",
+        "Object versioning",
+        "DNS routing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The cloud value proposition includes economic and operational benefits such as agility, elasticity, resilience, and cost optimization.",
+      "id": "clf02_full_024"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Under the AWS shared responsibility model, who is responsible for physical security of AWS data centers?",
+      "options": [
+        "AWS",
+        "AWS Marketplace sellers",
+        "The customer",
+        "The customer's ISP"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS is responsible for security OF the cloud, including facilities, hardware, and underlying infrastructure.",
+      "id": "clf02_full_025"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "For an Amazon EC2 instance, who is generally responsible for patching the guest operating system?",
+      "options": [
+        "The hardware manufacturer",
+        "AWS Marketplace",
+        "AWS only",
+        "The customer"
+      ],
+      "correctAnswer": 3,
+      "explanation": "For EC2, customers manage the guest OS, including patching and configuration.",
+      "id": "clf02_full_026"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "For Amazon RDS, which task is AWS responsible for as part of the managed service?",
+      "options": [
+        "Patching the underlying database infrastructure and managed OS",
+        "Creating the customer's IAM users",
+        "Classifying the customer's business data",
+        "Choosing the customer's encryption policy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS manages more of the underlying infrastructure for RDS, while customers remain responsible for their data and access configuration.",
+      "id": "clf02_full_027"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service manages users, groups, roles, and permissions to AWS resources?",
+      "options": [
+        "AWS Identity and Access Management (IAM)",
+        "AWS Shield",
+        "Amazon Macie",
+        "Amazon Route 53"
+      ],
+      "correctAnswer": 0,
+      "explanation": "IAM controls authentication and authorization to AWS resources.",
+      "id": "clf02_full_028"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "An EC2 application needs temporary permissions to read an S3 bucket. Which approach follows AWS best practices?",
+      "options": [
+        "Store root credentials in the application",
+        "Hard-code an IAM user's long-term keys",
+        "Attach an IAM role to the EC2 instance",
+        "Make the bucket public"
+      ],
+      "correctAnswer": 2,
+      "explanation": "IAM roles provide temporary credentials and avoid embedding long-term secrets.",
+      "id": "clf02_full_029"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which security principle recommends granting only the permissions required to perform a task?",
+      "options": [
+        "Maximum privilege",
+        "Open access",
+        "Shared credentials",
+        "Least privilege"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Least privilege minimizes risk by granting only necessary permissions.",
+      "id": "clf02_full_030"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "What additional security mechanism should be enabled for privileged AWS users to reduce the risk of password compromise?",
+      "options": [
+        "Anonymous API access",
+        "Disable logging",
+        "Public S3 access",
+        "Multi-factor authentication (MFA)"
+      ],
+      "correctAnswer": 3,
+      "explanation": "MFA requires an additional authentication factor beyond the password.",
+      "id": "clf02_full_031"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "Which AWS service records API activity performed by users, roles, and AWS services for auditing?",
+      "options": [
+        "AWS CloudTrail",
+        "AWS WAF",
+        "Amazon Inspector",
+        "Amazon GuardDuty"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CloudTrail records AWS account activity and API events.",
+      "id": "clf02_full_032"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "Which AWS service continuously analyzes supported data sources to detect suspicious activity and potential threats?",
+      "options": [
+        "AWS Artifact",
+        "Amazon GuardDuty",
+        "AWS CloudTrail",
+        "AWS Certificate Manager"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GuardDuty is a managed threat detection service.",
+      "id": "clf02_full_033"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "Which AWS service provides automated vulnerability management for supported EC2 workloads, Lambda functions, and ECR container images?",
+      "options": [
+        "AWS Shield",
+        "Amazon Macie",
+        "AWS Organizations",
+        "Amazon Inspector"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Amazon Inspector scans supported workloads for vulnerabilities and exposure.",
+      "id": "clf02_full_034"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service helps discover and classify sensitive data stored in Amazon S3?",
+      "options": [
+        "Amazon Macie",
+        "AWS WAF",
+        "Amazon GuardDuty",
+        "AWS CloudFormation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Macie uses machine learning and pattern matching to discover sensitive data in S3.",
+      "id": "clf02_full_035"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which service helps protect web applications from common web exploits by filtering HTTP(S) requests?",
+      "options": [
+        "AWS WAF",
+        "AWS Shield only",
+        "AWS Artifact",
+        "Amazon Inspector"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS WAF lets customers define web ACL rules to filter malicious or unwanted web requests.",
+      "id": "clf02_full_036"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides managed protection against distributed denial-of-service (DDoS) attacks?",
+      "options": [
+        "Amazon Macie",
+        "AWS Secrets Manager",
+        "AWS Shield",
+        "AWS Config"
+      ],
+      "correctAnswer": 2,
+      "explanation": "AWS Shield provides DDoS protection for AWS workloads.",
+      "id": "clf02_full_037"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A company wants to centrally view and prioritize security findings from services such as GuardDuty and Inspector. Which service should it use?",
+      "options": [
+        "AWS Security Hub",
+        "AWS Budgets",
+        "AWS Artifact",
+        "Amazon Route 53"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Security Hub aggregates and helps prioritize security findings across supported AWS services.",
+      "id": "clf02_full_038"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service is designed to create and control encryption keys used to protect data?",
+      "options": [
+        "Amazon CloudFront",
+        "AWS CloudTrail",
+        "AWS Cost Explorer",
+        "AWS Key Management Service (AWS KMS)"
+      ],
+      "correctAnswer": 3,
+      "explanation": "AWS KMS is a managed service for creating and controlling cryptographic keys.",
+      "id": "clf02_full_039"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "A company wants to store database passwords securely and rotate them automatically. Which service is MOST appropriate?",
+      "options": [
+        "AWS Secrets Manager",
+        "Amazon S3 public bucket",
+        "AWS Artifact",
+        "Amazon CloudWatch"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Secrets Manager securely stores secrets and supports automatic rotation for supported use cases.",
+      "id": "clf02_full_040"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service can provision and manage public and private SSL/TLS certificates for supported AWS services?",
+      "options": [
+        "Amazon Inspector",
+        "AWS Certificate Manager (ACM)",
+        "AWS Shield",
+        "AWS IAM"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ACM simplifies provisioning and lifecycle management of SSL/TLS certificates.",
+      "id": "clf02_full_041"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A company needs on-demand access to AWS compliance reports and agreements. Which service should it use?",
+      "options": [
+        "Amazon Detective",
+        "AWS Config",
+        "AWS Artifact",
+        "AWS CloudTrail"
+      ],
+      "correctAnswer": 2,
+      "explanation": "AWS Artifact provides access to AWS security and compliance documents and agreements.",
+      "id": "clf02_full_042"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which service records configuration changes to supported AWS resources and can evaluate them against desired rules?",
+      "options": [
+        "Amazon GuardDuty",
+        "AWS Config",
+        "AWS Shield",
+        "Amazon Macie"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS Config tracks resource configuration and can evaluate compliance using rules.",
+      "id": "clf02_full_043"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A company has many AWS accounts and wants to restrict which AWS services or actions member accounts can use. Which feature should it use?",
+      "options": [
+        "Security groups",
+        "S3 lifecycle policies",
+        "Network ACLs",
+        "Service control policies (SCPs) in AWS Organizations"
+      ],
+      "correctAnswer": 3,
+      "explanation": "SCPs set permission guardrails for accounts in an AWS Organization.",
+      "id": "clf02_full_044"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service helps centrally manage multiple AWS accounts?",
+      "options": [
+        "Amazon CloudFront",
+        "AWS Organizations",
+        "Amazon EFS",
+        "AWS Lambda"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS Organizations provides centralized multi-account management and governance capabilities.",
+      "id": "clf02_full_045"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A company wants workforce users to sign in once and access multiple AWS accounts and business applications. Which service is designed for this?",
+      "options": [
+        "AWS WAF",
+        "AWS Shield",
+        "Amazon Cognito only",
+        "AWS IAM Identity Center"
+      ],
+      "correctAnswer": 3,
+      "explanation": "IAM Identity Center provides centralized workforce access to multiple AWS accounts and applications.",
+      "id": "clf02_full_046"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "Which AWS service provides a managed landing-zone capability to set up and govern a secure multi-account AWS environment?",
+      "options": [
+        "AWS Snowball",
+        "AWS Control Tower",
+        "AWS Direct Connect",
+        "Amazon Lightsail"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS Control Tower automates setup and governance of multi-account AWS environments using established best practices.",
+      "id": "clf02_full_047"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "What is the recommended practice for the AWS account root user?",
+      "options": [
+        "Use it for daily administration",
+        "Create root access keys for applications",
+        "Use it only for tasks that specifically require root credentials and enable MFA",
+        "Share its password among administrators"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Root credentials have unrestricted access and should be tightly protected and used only when necessary.",
+      "id": "clf02_full_048"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "A company wants a private connection from resources in a VPC to Amazon S3 without sending traffic through the public internet. Which feature can provide this?",
+      "options": [
+        "Internet gateway",
+        "VPC endpoint",
+        "Public subnet",
+        "Elastic IP address"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A VPC endpoint enables private connectivity to supported AWS services without requiring internet traversal.",
+      "id": "clf02_full_049"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "Which statement about security groups is correct?",
+      "options": [
+        "They replace IAM permissions",
+        "They encrypt S3 objects automatically",
+        "They are stateful virtual firewalls associated with resources such as EC2 instances",
+        "They are stateless and operate only at the AWS Region boundary"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Security groups are stateful network access controls commonly associated with ENIs and EC2 instances.",
+      "id": "clf02_full_050"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "Which statement about network ACLs is correct?",
+      "options": [
+        "They record API activity",
+        "They manage encryption keys",
+        "They are stateless controls applied at the subnet level",
+        "They are stateful controls attached to IAM users"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Network ACLs are stateless network filters that operate at the subnet boundary.",
+      "id": "clf02_full_051"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "A company wants to prevent accidental public access to S3 buckets across an account. Which capability is MOST relevant?",
+      "options": [
+        "Amazon Route 53 health checks",
+        "Amazon S3 Block Public Access",
+        "EC2 Auto Scaling",
+        "AWS Direct Connect"
+      ],
+      "correctAnswer": 1,
+      "explanation": "S3 Block Public Access provides centralized controls to limit public access to buckets and objects.",
+      "id": "clf02_full_052"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Hard",
+      "question": "Which service helps investigate the root cause of suspicious security findings by analyzing relationships and activity across AWS resources?",
+      "options": [
+        "Amazon Detective",
+        "AWS Pricing Calculator",
+        "Amazon EFS",
+        "AWS Backup"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Amazon Detective assists security investigations by analyzing and visualizing security-related data.",
+      "id": "clf02_full_053"
+    },
+    {
+      "domain": "Security & Compliance",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides centralized policy management for AWS WAF rules, Shield Advanced protections, and certain other security controls across accounts?",
+      "options": [
+        "AWS Trusted Advisor",
+        "AWS Firewall Manager",
+        "AWS CloudShell",
+        "AWS Artifact"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS Firewall Manager helps centrally configure and manage firewall and protection policies across accounts and resources.",
+      "id": "clf02_full_054"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS compute service provides resizable virtual servers in the cloud?",
+      "options": [
+        "Amazon RDS",
+        "Amazon Route 53",
+        "Amazon EC2",
+        "Amazon S3"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Amazon EC2 provides resizable virtual compute instances.",
+      "id": "clf02_full_055"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which service runs code in response to events without requiring customers to provision servers?",
+      "options": [
+        "AWS Lambda",
+        "Amazon EC2 Dedicated Hosts",
+        "Amazon EBS",
+        "AWS Direct Connect"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Lambda is serverless compute that executes code in response to events.",
+      "id": "clf02_full_056"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service automatically adjusts the number of EC2 instances in response to demand?",
+      "options": [
+        "AWS CloudTrail",
+        "Amazon EC2 Auto Scaling",
+        "AWS Artifact",
+        "Amazon Macie"
+      ],
+      "correctAnswer": 1,
+      "explanation": "EC2 Auto Scaling adjusts instance capacity based on policies and demand.",
+      "id": "clf02_full_057"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Which service distributes incoming application traffic across multiple targets such as EC2 instances?",
+      "options": [
+        "AWS Organizations",
+        "Elastic Load Balancing",
+        "AWS KMS",
+        "Amazon EBS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Elastic Load Balancing distributes traffic across healthy targets to improve availability and scalability.",
+      "id": "clf02_full_058"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which service offers a simplified way to launch virtual private servers, storage, and networking for small applications?",
+      "options": [
+        "Amazon Macie",
+        "Amazon Redshift",
+        "AWS Artifact",
+        "Amazon Lightsail"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Lightsail provides simplified cloud resources for smaller or straightforward workloads.",
+      "id": "clf02_full_059"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company wants to run containers without managing EC2 servers. Which AWS compute option can provide serverless container capacity?",
+      "options": [
+        "Amazon Route 53",
+        "AWS Direct Connect",
+        "Amazon EBS",
+        "AWS Fargate"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Fargate provides serverless compute capacity for supported container orchestration services.",
+      "id": "clf02_full_060"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which managed service is designed to run and scale containerized applications using Kubernetes?",
+      "options": [
+        "AWS IAM",
+        "Amazon S3",
+        "Amazon RDS",
+        "Amazon EKS"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Amazon EKS is AWS's managed Kubernetes service.",
+      "id": "clf02_full_061"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which managed service provides container orchestration using AWS-native technology?",
+      "options": [
+        "Amazon Aurora",
+        "Amazon Route 53",
+        "AWS Config",
+        "Amazon ECS"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Amazon ECS is a fully managed AWS container orchestration service.",
+      "id": "clf02_full_062"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides scalable object storage?",
+      "options": [
+        "EC2 Instance Store",
+        "Amazon S3",
+        "Amazon EFS",
+        "Amazon EBS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amazon S3 provides highly scalable object storage.",
+      "id": "clf02_full_063"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Which storage service provides block storage volumes primarily for use with EC2 instances?",
+      "options": [
+        "Amazon EFS",
+        "Amazon EBS",
+        "Amazon S3 Glacier",
+        "Amazon S3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Amazon EBS provides persistent block-level storage for EC2 workloads.",
+      "id": "clf02_full_064"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Multiple Linux EC2 instances need to access the same managed file system concurrently. Which service is MOST appropriate?",
+      "options": [
+        "Amazon EFS",
+        "EC2 Instance Store",
+        "Amazon S3 Glacier Deep Archive",
+        "Amazon EBS"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Amazon EFS provides managed shared file storage that can be mounted by multiple Linux-based resources.",
+      "id": "clf02_full_065"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which S3 storage class is designed for long-term archival data that is rarely accessed and can tolerate longer retrieval times?",
+      "options": [
+        "S3 Standard",
+        "S3 Glacier Deep Archive",
+        "S3 Standard-IA",
+        "S3 Express One Zone"
+      ],
+      "correctAnswer": 1,
+      "explanation": "S3 Glacier Deep Archive is optimized for very low-cost, long-term archival storage.",
+      "id": "clf02_full_066"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company wants S3 objects to automatically move to lower-cost storage classes as they age. Which feature should it configure?",
+      "options": [
+        "Route tables",
+        "IAM groups",
+        "Security groups",
+        "S3 Lifecycle policies"
+      ],
+      "correctAnswer": 3,
+      "explanation": "S3 Lifecycle rules automate transitions between storage classes and expiration.",
+      "id": "clf02_full_067"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides a managed relational database?",
+      "options": [
+        "Amazon CloudFront",
+        "Amazon S3",
+        "Amazon DynamoDB",
+        "Amazon RDS"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Amazon RDS provides managed relational database engines.",
+      "id": "clf02_full_068"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Which AWS database is a MySQL- and PostgreSQL-compatible relational database designed for the cloud?",
+      "options": [
+        "Amazon DocumentDB",
+        "Amazon Neptune",
+        "Amazon DynamoDB",
+        "Amazon Aurora"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Aurora is a cloud-optimized relational database compatible with MySQL and PostgreSQL.",
+      "id": "clf02_full_069"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which database service is a serverless NoSQL key-value and document database?",
+      "options": [
+        "Amazon Aurora",
+        "Amazon RDS",
+        "Amazon DynamoDB",
+        "Amazon Redshift"
+      ],
+      "correctAnswer": 2,
+      "explanation": "DynamoDB is a managed serverless NoSQL database.",
+      "id": "clf02_full_070"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Which AWS service is primarily designed as a cloud data warehouse for analytics?",
+      "options": [
+        "Amazon ElastiCache",
+        "Amazon EFS",
+        "Amazon RDS for MySQL",
+        "Amazon Redshift"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Amazon Redshift is a managed cloud data warehouse for analytics workloads.",
+      "id": "clf02_full_071"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Which service provides managed in-memory caching to improve application performance?",
+      "options": [
+        "Amazon ElastiCache",
+        "Amazon S3 Glacier",
+        "AWS Artifact",
+        "Amazon Route 53"
+      ],
+      "correctAnswer": 0,
+      "explanation": "ElastiCache provides managed Redis/Valkey and Memcached-compatible in-memory caching capabilities.",
+      "id": "clf02_full_072"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides scalable DNS and domain registration?",
+      "options": [
+        "Amazon Route 53",
+        "Amazon CloudFront",
+        "AWS Direct Connect",
+        "Amazon VPC"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Route 53 provides DNS, domain registration, and health-checking capabilities.",
+      "id": "clf02_full_073"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which service is AWS's content delivery network (CDN)?",
+      "options": [
+        "Amazon CloudFront",
+        "Amazon VPC",
+        "AWS CloudTrail",
+        "Amazon CloudWatch"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CloudFront caches and delivers content through a global edge network.",
+      "id": "clf02_full_074"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company requires a dedicated private network connection from its data center to AWS. Which service should it use?",
+      "options": [
+        "Amazon CloudFront",
+        "Internet Gateway",
+        "AWS WAF",
+        "AWS Direct Connect"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Direct Connect provides dedicated connectivity between customer locations and AWS.",
+      "id": "clf02_full_075"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS networking service enables customers to create an isolated virtual network in AWS?",
+      "options": [
+        "Amazon VPC",
+        "AWS IAM",
+        "Amazon S3",
+        "Amazon Route 53"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Amazon VPC lets customers define logically isolated virtual networks.",
+      "id": "clf02_full_076"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Which VPC component allows resources in a public subnet to communicate with the internet?",
+      "options": [
+        "NAT gateway only",
+        "VPC endpoint",
+        "Network ACL",
+        "Internet gateway"
+      ],
+      "correctAnswer": 3,
+      "explanation": "An internet gateway enables communication between a VPC and the internet when routing and addressing are configured appropriately.",
+      "id": "clf02_full_077"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Private-subnet EC2 instances need outbound internet access for software updates but should not accept unsolicited inbound internet connections. Which service is commonly used?",
+      "options": [
+        "Amazon Macie",
+        "Internet gateway attached directly to each instance",
+        "NAT gateway",
+        "AWS Artifact"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A NAT gateway enables outbound internet connectivity for private-subnet resources while preventing unsolicited inbound connections.",
+      "id": "clf02_full_078"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service collects metrics, logs, and alarms for monitoring AWS resources and applications?",
+      "options": [
+        "AWS Organizations",
+        "Amazon CloudWatch",
+        "AWS Artifact",
+        "AWS CloudTrail"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CloudWatch provides monitoring, metrics, logs, dashboards, and alarms.",
+      "id": "clf02_full_079"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company wants to define AWS infrastructure using templates so environments can be created consistently. Which service should it use?",
+      "options": [
+        "Amazon Macie",
+        "AWS Shield",
+        "AWS CloudFormation",
+        "Amazon GuardDuty"
+      ],
+      "correctAnswer": 2,
+      "explanation": "CloudFormation provides infrastructure as code using declarative templates.",
+      "id": "clf02_full_080"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which browser-based shell provides command-line access to AWS without requiring local installation of the AWS CLI?",
+      "options": [
+        "AWS Shield",
+        "AWS Artifact",
+        "AWS CloudShell",
+        "Amazon WorkSpaces"
+      ],
+      "correctAnswer": 2,
+      "explanation": "CloudShell provides a browser-based shell with AWS tooling and authenticated access.",
+      "id": "clf02_full_081"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "Which service helps centrally view and manage application and infrastructure resources and automate operational tasks such as patching supported managed nodes?",
+      "options": [
+        "Amazon Macie",
+        "AWS Systems Manager",
+        "Amazon Route 53",
+        "AWS WAF"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Systems Manager provides operational management capabilities including inventory, automation, and patch management.",
+      "id": "clf02_full_082"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service helps migrate databases to AWS with minimal downtime for many migration scenarios?",
+      "options": [
+        "AWS Database Migration Service (AWS DMS)",
+        "AWS Shield",
+        "Amazon CloudFront",
+        "AWS Budgets"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS DMS helps migrate databases to AWS and supports ongoing replication for reduced downtime.",
+      "id": "clf02_full_083"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "A company needs to transfer tens of terabytes of data to AWS from a location with limited network bandwidth. Which AWS family of physical devices can help?",
+      "options": [
+        "Amazon Route 53",
+        "AWS WAF",
+        "AWS Snow Family",
+        "AWS IAM"
+      ],
+      "correctAnswer": 2,
+      "explanation": "AWS Snow Family devices support offline or edge data transfer when network transfer is impractical.",
+      "id": "clf02_full_084"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which service accelerates online transfer of files between on-premises storage and AWS storage services?",
+      "options": [
+        "Amazon GuardDuty",
+        "AWS Pricing Calculator",
+        "AWS Artifact",
+        "AWS DataSync"
+      ],
+      "correctAnswer": 3,
+      "explanation": "DataSync is a managed data transfer service for moving data between on-premises storage, edge locations, and AWS storage.",
+      "id": "clf02_full_085"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides managed message queues to decouple application components?",
+      "options": [
+        "Amazon SQS",
+        "AWS Config",
+        "Amazon SNS",
+        "Amazon Route 53"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Amazon SQS provides durable managed message queues that help decouple distributed application components.",
+      "id": "clf02_full_086"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Hard",
+      "question": "An application must send the same notification to multiple subscribers using a publish/subscribe model. Which service is MOST appropriate?",
+      "options": [
+        "Amazon EBS",
+        "Amazon SQS only",
+        "AWS Direct Connect",
+        "Amazon SNS"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Amazon SNS is a managed pub/sub messaging service that can fan out messages to multiple subscribers.",
+      "id": "clf02_full_087"
+    },
+    {
+      "domain": "Cloud Technology & Services",
+      "difficulty": "Medium",
+      "question": "Which AWS service lets users query data in Amazon S3 using standard SQL without managing servers?",
+      "options": [
+        "AWS Shield",
+        "Amazon EFS",
+        "Amazon Athena",
+        "Amazon EC2 Auto Scaling"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Athena is a serverless interactive query service for data in S3.",
+      "id": "clf02_full_088"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "Which AWS tool helps estimate the cost of a planned architecture before resources are deployed?",
+      "options": [
+        "AWS CloudTrail",
+        "Amazon Inspector",
+        "AWS Artifact",
+        "AWS Pricing Calculator"
+      ],
+      "correctAnswer": 3,
+      "explanation": "AWS Pricing Calculator estimates costs for planned AWS workloads.",
+      "id": "clf02_full_089"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "Which AWS service helps visualize and analyze historical AWS costs and usage?",
+      "options": [
+        "AWS Cost Explorer",
+        "AWS Config",
+        "Amazon GuardDuty",
+        "AWS CloudFormation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cost Explorer provides cost and usage visualization, analysis, and forecasting capabilities.",
+      "id": "clf02_full_090"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "A company wants an alert when actual or forecasted monthly AWS spending exceeds a defined amount. Which service should it use?",
+      "options": [
+        "AWS Budgets",
+        "Amazon Route 53",
+        "AWS DMS",
+        "AWS Shield"
+      ],
+      "correctAnswer": 0,
+      "explanation": "AWS Budgets supports cost and usage thresholds with notifications.",
+      "id": "clf02_full_091"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Hard",
+      "question": "A fault-tolerant batch workload can be interrupted and restarted. Which EC2 purchasing option can provide the largest discounts compared with On-Demand pricing?",
+      "options": [
+        "Dedicated Hosts",
+        "On-Demand Instances",
+        "Spot Instances",
+        "Capacity Reservations"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Spot Instances use spare EC2 capacity at steep discounts and suit interruption-tolerant workloads.",
+      "id": "clf02_full_092"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "Which EC2 pricing model is appropriate when a workload has short-term, irregular usage and the customer does not want a long-term commitment?",
+      "options": [
+        "On-Demand Instances",
+        "Dedicated Hosts with long commitment",
+        "Standard Reserved Instances",
+        "Spot Instances for interruption-intolerant workloads"
+      ],
+      "correctAnswer": 0,
+      "explanation": "On-Demand pricing is appropriate for flexible workloads without long-term commitment.",
+      "id": "clf02_full_093"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Hard",
+      "question": "A company has predictable compute usage and is willing to make a usage commitment in exchange for lower prices across eligible compute services. Which pricing option is MOST relevant?",
+      "options": [
+        "AWS Artifact",
+        "Savings Plans",
+        "On-Demand only",
+        "AWS Budgets"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Savings Plans offer lower prices in exchange for a consistent usage commitment over a term.",
+      "id": "clf02_full_094"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "Which AWS capability allows charges from multiple member accounts in an AWS Organization to be combined on one bill?",
+      "options": [
+        "Amazon Macie",
+        "AWS WAF",
+        "VPC peering",
+        "Consolidated billing"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Consolidated billing combines charges from accounts within an AWS Organization.",
+      "id": "clf02_full_095"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Hard",
+      "question": "Which cost allocation mechanism can help a company categorize AWS charges by project, department, or environment?",
+      "options": [
+        "Security groups",
+        "Cost allocation tags",
+        "Network ACLs",
+        "Route tables"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Activated cost allocation tags can be used to categorize and analyze AWS costs.",
+      "id": "clf02_full_096"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides recommendations in areas such as cost optimization, performance, security, fault tolerance, and service limits depending on available checks?",
+      "options": [
+        "AWS CloudTrail",
+        "AWS Trusted Advisor",
+        "Amazon EFS",
+        "AWS Snowball"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Trusted Advisor evaluates AWS environments against best-practice checks and provides recommendations.",
+      "id": "clf02_full_097"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "Where can AWS customers create and manage technical support cases when their support plan includes case creation?",
+      "options": [
+        "AWS Marketplace",
+        "Amazon Route 53",
+        "AWS Artifact only",
+        "AWS Support Center"
+      ],
+      "correctAnswer": 3,
+      "explanation": "AWS Support Center is used to create and manage AWS Support cases.",
+      "id": "clf02_full_098"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Hard",
+      "question": "Which AWS resource is a community-driven question-and-answer service for technical AWS questions?",
+      "options": [
+        "AWS KMS",
+        "AWS re:Post",
+        "Amazon EBS",
+        "AWS WAF"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AWS re:Post is an AWS-managed community knowledge service for technical questions and answers.",
+      "id": "clf02_full_099"
+    },
+    {
+      "domain": "Billing, Pricing & Support",
+      "difficulty": "Medium",
+      "question": "Which AWS service provides information about events and changes that can affect a customer's AWS resources and services?",
+      "options": [
+        "AWS DataSync",
+        "Amazon Macie",
+        "AWS Health",
+        "AWS Secrets Manager"
+      ],
+      "correctAnswer": 2,
+      "explanation": "AWS Health provides visibility into events and changes that may affect AWS services and customer resources.",
+      "id": "clf02_full_100"
+    }
+  ]
+}
